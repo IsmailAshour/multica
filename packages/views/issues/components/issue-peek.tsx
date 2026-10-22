@@ -12,6 +12,7 @@ import {
 import { ErrorBoundary } from "@multica/ui/components/common/error-boundary";
 import { cn } from "@multica/ui/lib/utils";
 import { UI_EASE_OUT, UI_MOTION_DURATION } from "@multica/ui/lib/motion";
+import { isRtl } from "@multica/ui/lib/direction";
 import { useModalStore } from "@multica/core/modals";
 import { useWorkspacePaths } from "@multica/core/paths";
 import {
@@ -278,11 +279,19 @@ function IssuePeekFollow({
     card.scrollIntoView?.({ block: "nearest", inline: "nearest" });
     const scroller = card.closest<HTMLElement>("[data-board-scroller]");
     // offsetLeft, not the panel's rect: on the first frame the rect is still
-    // shifted by the slide-in animation.
+    // shifted by the slide-in animation. The panel sits on the inline end, so
+    // in RTL it covers the card from the left and the board scrolls leftward.
     const panelLeft = host.getBoundingClientRect().left + panel.offsetLeft;
-    const covered = card.getBoundingClientRect().right - (panelLeft - 16);
+    const cardRect = card.getBoundingClientRect();
+    const rtl = isRtl(host);
+    const covered = rtl
+      ? panelLeft + panel.offsetWidth + 16 - cardRect.left
+      : cardRect.right - (panelLeft - 16);
     if (scroller && covered > 0) {
-      scroller.scrollBy?.({ left: covered, behavior: reduceMotion ? "auto" : "smooth" });
+      scroller.scrollBy?.({
+        left: rtl ? -covered : covered,
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
     }
   }, [issueId, position, panelRef, reduceMotion]);
 

@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next"
 
 import { useIsCompact } from "@multica/ui/hooks/use-mobile"
 import { cn } from "@multica/ui/lib/utils"
+import { isRtl } from "@multica/ui/lib/direction"
 import { IconButton } from "@multica/ui/components/common/icon-button"
 import { Input } from "@multica/ui/components/ui/input"
 import { Separator } from "@multica/ui/components/ui/separator"
@@ -465,8 +466,7 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
         latestWidth: startWidth,
         // Dragging away from the inline-start edge widens the sidebar.
         direction:
-          (sidebarEl.dataset.side === "end") !==
-          (getComputedStyle(sidebarEl).direction === "rtl")
+          (sidebarEl.dataset.side === "end") !== isRtl(sidebarEl)
             ? -1
             : 1,
         wrapperEl,

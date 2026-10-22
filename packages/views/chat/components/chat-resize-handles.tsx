@@ -11,7 +11,7 @@ interface ChatResizeHandlesProps {
 export function ChatResizeHandles({ onDragStart }: ChatResizeHandlesProps) {
   return (
     <>
-      {/* Left edge — expands width when dragged left */}
+      {/* Inline-start edge — expands width when dragged outward */}
       <div
         aria-hidden
         onPointerDown={(e) => onDragStart(e, "left")}
@@ -23,11 +23,11 @@ export function ChatResizeHandles({ onDragStart }: ChatResizeHandlesProps) {
         onPointerDown={(e) => onDragStart(e, "top")}
         className="absolute top-0 inset-s-4 inset-e-0 h-1 z-10 cursor-row-resize"
       />
-      {/* Top-left corner — expands both width and height */}
+      {/* Top inline-start corner — expands both width and height */}
       <div
         aria-hidden
         onPointerDown={(e) => onDragStart(e, "corner")}
-        className="absolute top-0 inset-s-0 size-4 z-20 cursor-nw-resize"
+        className="absolute top-0 inset-s-0 size-4 z-20 cursor-nw-resize rtl:cursor-ne-resize"
       />
     </>
   );
