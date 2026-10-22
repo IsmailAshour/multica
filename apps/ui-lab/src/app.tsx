@@ -493,18 +493,18 @@ function Workbench({
               </Button>
             ))}
           </div>
+          {/* Direction is independent of the language, so it sits apart. */}
+          <span className="header-separator" />
           <Button
             size="sm"
             variant={direction === "rtl" ? "secondary" : "ghost"}
             aria-pressed={direction === "rtl"}
-            aria-label={t(($) => $.lab.direction.rtl)}
             title={t(($) => $.lab.direction.rtl)}
-            lang="ar"
             onClick={() =>
               onDirectionChange(direction === "rtl" ? "ltr" : "rtl")
             }
           >
-            ع
+            RTL
           </Button>
           <Button
             variant="ghost"
