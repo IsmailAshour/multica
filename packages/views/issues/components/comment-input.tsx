@@ -296,7 +296,7 @@ function CommentInput({ issueId, onSubmit, onAccepted, onEditAnnotation }: Comme
               exact type metrics (line-height 1.625 from prose.css), so the
               shell→editor swap doesn't shift layout. */}
           <div className="rich-text-editor text-body">
-            <p className="text-muted-foreground">{t(($) => $.comment.leave_comment_placeholder)}</p>
+            <p data-editor-placeholder className="text-muted-foreground">{t(($) => $.comment.leave_comment_placeholder)}</p>
           </div>
         </div>
       )}

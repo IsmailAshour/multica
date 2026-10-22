@@ -48,6 +48,12 @@
   text-align: start;
 }
 
+/* A placeholder is UI copy, not content: it follows the page direction, so
+   an untranslated placeholder in an RTL page does not drift to the left. */
+.rich-text-editor :is(.is-editor-empty:first-child, [data-editor-placeholder]) {
+  unicode-bidi: normal;
+}
+
 /* Headings — compact but with clear visual hierarchy */
 .rich-text-editor h1 {
   font-size: var(--text-display-sm);

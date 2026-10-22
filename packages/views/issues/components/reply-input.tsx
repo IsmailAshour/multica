@@ -302,7 +302,7 @@ function ReplyInput({
           >
             {/* <p> under rich-text-editor: same type metrics as the real
                 editor's empty paragraph — no height jump on swap. */}
-            <p className="text-muted-foreground">{placeholderText}</p>
+            <p data-editor-placeholder className="text-muted-foreground">{placeholderText}</p>
           </div>
         )}
         <div className="absolute bottom-0 inset-s-0 inset-e-24 min-w-0">
