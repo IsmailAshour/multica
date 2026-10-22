@@ -404,26 +404,39 @@ html[data-dnd-dragging="true"] * {
  * Directional icons point along the reading direction, so RTL mirrors them.
  * A rotation on the same icon composes after the mirror: pair `rotate-90`
  * with `rtl:-rotate-90` so a disclosure chevron still opens downward.
- * External-link, media and symmetric icons keep their drawing.
+ * External-link, media, refresh, symmetric icons and icons that contain
+ * digits or check marks keep their drawing. Two places opt out: `dir="ltr"`
+ * islands (window chrome, charts), and the calendar, whose day picker
+ * already swaps its chevrons for RTL.
  */
-:where([dir="rtl"]) svg.lucide-arrow-left,
-:where([dir="rtl"]) svg.lucide-arrow-right,
-:where([dir="rtl"]) svg.lucide-arrow-left-to-line,
-:where([dir="rtl"]) svg.lucide-arrow-right-to-line,
-:where([dir="rtl"]) svg.lucide-chevron-left,
-:where([dir="rtl"]) svg.lucide-chevron-right,
-:where([dir="rtl"]) svg.lucide-chevrons-left,
-:where([dir="rtl"]) svg.lucide-chevrons-right,
-:where([dir="rtl"]) svg.lucide-corner-down-left,
-:where([dir="rtl"]) svg.lucide-corner-down-right,
-:where([dir="rtl"]) svg.lucide-corner-left-up,
-:where([dir="rtl"]) svg.lucide-corner-up-left,
-:where([dir="rtl"]) svg.lucide-corner-up-right,
-:where([dir="rtl"]) svg.lucide-list-end,
-:where([dir="rtl"]) svg.lucide-log-in,
-:where([dir="rtl"]) svg.lucide-log-out,
-:where([dir="rtl"]) svg.lucide-panel-left,
-:where([dir="rtl"]) svg.lucide-panel-right {
+:where([dir="rtl"])
+  :is(
+    svg.lucide-arrow-left,
+    svg.lucide-arrow-right,
+    svg.lucide-arrow-left-to-line,
+    svg.lucide-arrow-right-to-line,
+    svg.lucide-chevron-left,
+    svg.lucide-chevron-right,
+    svg.lucide-chevrons-left,
+    svg.lucide-chevrons-right,
+    svg.lucide-corner-down-left,
+    svg.lucide-corner-down-right,
+    svg.lucide-corner-left-up,
+    svg.lucide-corner-up-left,
+    svg.lucide-corner-up-right,
+    svg.lucide-delete,
+    svg.lucide-list,
+    svg.lucide-list-end,
+    svg.lucide-list-plus,
+    svg.lucide-list-tree,
+    svg.lucide-list-x,
+    svg.lucide-log-in,
+    svg.lucide-log-out,
+    svg.lucide-milestone,
+    svg.lucide-panel-left,
+    svg.lucide-panel-right,
+    svg.lucide-send
+  ):not(:where([dir="ltr"] *, [data-slot="calendar"] *)) {
   transform: scaleX(-1);
 }
 

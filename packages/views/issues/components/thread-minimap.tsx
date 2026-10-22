@@ -277,7 +277,7 @@ function MinimapTick({
           // the scrollbar. The 100ms ease-out doubles as smoothing between
           // pointer samples and as the settle on leave. Reply ticks are half
           // the length of thread ticks and share their colors.
-          "h-0.5 origin-right rounded-full transition-[scale,background-color] duration-100 ease-out",
+          "h-0.5 origin-right rtl:origin-left rounded-full transition-[scale,background-color] duration-100 ease-out",
           isReply ? "w-1.5" : "w-3",
           inViewport ? "bg-foreground/70" : "bg-muted-foreground/30",
           !isHighlighted && "group-hover/tick:bg-foreground",

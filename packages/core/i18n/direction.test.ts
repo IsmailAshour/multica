@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { getDir } from "./direction";
 
 describe("getDir", () => {
-  it.each(["ar", "ar-SA", "AR-eg", "he", "fa-IR", "ur"])("returns rtl for %s", (locale) => {
+  it.each(["ar", "ar-SA", "AR-eg", "ar_EG", "he", "fa-IR", "ur"])("returns rtl for %s", (locale) => {
     expect(getDir(locale)).toBe("rtl");
   });
 

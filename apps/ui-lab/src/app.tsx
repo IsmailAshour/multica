@@ -497,6 +497,7 @@ function Workbench({
             size="sm"
             variant={direction === "rtl" ? "secondary" : "ghost"}
             aria-pressed={direction === "rtl"}
+            aria-label={t(($) => $.lab.direction.rtl)}
             title={t(($) => $.lab.direction.rtl)}
             lang="ar"
             onClick={() =>

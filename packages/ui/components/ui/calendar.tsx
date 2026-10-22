@@ -10,6 +10,7 @@ import {
 
 import { cn } from "@multica/ui/lib/utils"
 import { Button, buttonVariants } from "@multica/ui/components/ui/button"
+import { useDirection } from "@multica/ui/components/ui/direction"
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from "lucide-react"
 
 function Calendar({
@@ -26,9 +27,13 @@ function Calendar({
   buttonVariant?: React.ComponentProps<typeof Button>["variant"]
 }) {
   const defaultClassNames = getDefaultClassNames()
+  // The day picker reads `dir` for arrow-key navigation and swaps its own
+  // chevrons, so the global icon mirror skips the calendar.
+  const direction = useDirection()
 
   return (
     <DayPicker
+      dir={direction}
       showOutsideDays={showOutsideDays}
       className={cn(
         "group/calendar bg-background p-2 [--cell-radius:var(--radius-md)] [--cell-size:--spacing(7)] in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent",

@@ -3627,7 +3627,7 @@ export function IssueDetail({ issueId, onDelete, onDone, defaultSidebarOpen = tr
                     <ChevronDown
                       className={cn(
                         "h-3.5 w-3.5 text-muted-foreground transition-transform",
-                        subIssuesCollapsed && "-rotate-90",
+                        subIssuesCollapsed && "-rotate-90 rtl:rotate-90",
                       )}
                     />
                     <span>{t(($) => $.detail.sub_issues_label)}</span>

@@ -792,7 +792,7 @@ export function InlineTitle({
             * pointer while it is somewhere else entirely. The fade still
             * follows the row's hover colour, since that is what the cell is
             * painted with when they appear. */}
-          <span className="pointer-events-none absolute inset-y-0 inset-e-0 flex items-center gap-0.5 bg-gradient-to-l from-background from-70% to-transparent pe-1 ps-8 opacity-0 transition-opacity group-hover:from-[color-mix(in_oklab,var(--muted)_50%,var(--background))] group-hover/title:pointer-events-auto group-hover/title:opacity-100 focus-within:pointer-events-auto focus-within:opacity-100">
+          <span className="pointer-events-none absolute inset-y-0 inset-e-0 flex items-center gap-0.5 bg-gradient-to-l rtl:bg-gradient-to-r from-background from-70% to-transparent pe-1 ps-8 opacity-0 transition-opacity group-hover:from-[color-mix(in_oklab,var(--muted)_50%,var(--background))] group-hover/title:pointer-events-auto group-hover/title:opacity-100 focus-within:pointer-events-auto focus-within:opacity-100">
             <DeferredTooltip
               content={createSubIssueLabel}
               trigger={
