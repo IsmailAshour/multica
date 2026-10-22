@@ -81,7 +81,7 @@ export function PullRequestsSection({
         ) : null}
       </div>
       {open && (
-        <div className="pl-2">
+        <div className="ps-2">
           <PullRequestList issueId={issueId} identifier={identifier} />
         </div>
       )}

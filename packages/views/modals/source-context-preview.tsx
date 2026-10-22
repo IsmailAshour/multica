@@ -123,7 +123,7 @@ export function SourceContextPreviewCard({
     >
       <button
         type="button"
-        className="flex w-full min-w-0 shrink-0 items-center gap-2 px-3 py-2 text-left text-caption hover:bg-muted/50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+        className="flex w-full min-w-0 shrink-0 items-center gap-2 px-3 py-2 text-start text-caption hover:bg-muted/50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
         aria-expanded={expanded}
         onClick={toggleExpanded}
       >

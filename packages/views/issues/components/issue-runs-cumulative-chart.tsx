@@ -165,7 +165,7 @@ export function RunCumulativeChart({
     <div className="mt-5 border-b px-6 pb-3">
       <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2">
         {viewSwitch}
-        <div className="ml-auto flex items-center gap-4 text-caption text-muted-foreground">
+        <div className="ms-auto flex items-center gap-4 text-caption text-muted-foreground">
           {timeline.pricedCount > 0 && (
             <span className="flex items-center gap-1.5">
               <span aria-hidden className="h-0.5 w-3.5 rounded-full bg-chart-1" />
@@ -359,7 +359,7 @@ export function RunCumulativeChart({
             last && Math.abs(yPct(v) - yPct(last.cost)) < 12 ? null : (
               <span
                 key={v}
-                className="absolute left-1 -translate-y-1/2 text-muted-foreground"
+                className="absolute start-1 -translate-y-1/2 text-muted-foreground"
                 style={{ top: `${yPct(v)}%` }}
               >
                 {formatTick(v)}
@@ -368,7 +368,7 @@ export function RunCumulativeChart({
           )}
           {last && (
             <span
-              className="absolute left-1 -translate-y-1/2 font-medium text-foreground"
+              className="absolute start-1 -translate-y-1/2 font-medium text-foreground"
               style={{ top: `${yPct(last.cost)}%` }}
             >
               {formatUsd(last.cost)}

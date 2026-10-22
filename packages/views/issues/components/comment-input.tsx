@@ -300,7 +300,7 @@ function CommentInput({ issueId, onSubmit, onAccepted, onEditAnnotation }: Comme
           </div>
         </div>
       )}
-      <div className="absolute bottom-1 left-2 right-28 min-w-0">
+      <div className="absolute bottom-1 start-2 end-28 min-w-0">
         <CommentTriggerChips
           recipients={recipients}
           blocked={triggerPreview.blocked}
@@ -309,7 +309,7 @@ function CommentInput({ issueId, onSubmit, onAccepted, onEditAnnotation }: Comme
           onActionChange={setAction}
         />
       </div>
-      <div className="absolute bottom-1 right-1.5 flex items-center gap-1">
+      <div className="absolute bottom-1 end-1.5 flex items-center gap-1">
         <FileUploadButton
           size="sm"
           multiple

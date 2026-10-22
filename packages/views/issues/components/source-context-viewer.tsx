@@ -187,7 +187,7 @@ export function SourceContextBadge({
             </span>
           )}
         </div>
-        <div className="ml-auto flex shrink-0 items-center gap-1">
+        <div className="ms-auto flex shrink-0 items-center gap-1">
           {sourceStateLabel && (
             <span className={cn("text-micro font-medium", sourceStateTone)} role="status" aria-live="polite">
               {sourceStateLabel}
@@ -215,7 +215,7 @@ export function SourceContextBadge({
               : "h-[min(82dvh,56rem)] sm:max-w-4xl",
           )}
         >
-          <DialogHeader className="relative shrink-0 gap-1 border-b px-5 py-4 pr-20 sm:px-6">
+          <DialogHeader className="relative shrink-0 gap-1 border-b px-5 py-4 pe-20 sm:px-6">
             <DialogTitle className="text-pretty">{t(($) => $.source_context.viewer_title)}</DialogTitle>
             <DialogDescription>
               {t(($) => $.source_context.agent_received)} · {new Intl.DateTimeFormat(locale, {
@@ -223,7 +223,7 @@ export function SourceContextBadge({
                 timeStyle: "short",
               }).format(new Date(current.captured_at))}
             </DialogDescription>
-            <div className="absolute right-3 top-3 flex items-center gap-1">
+            <div className="absolute end-3 top-3 flex items-center gap-1">
               <IconButton
                 type="button"
                 variant="ghost"
@@ -303,7 +303,7 @@ export function SourceContextBadge({
                           type="button"
                           variant="ghost"
                           size="icon-sm"
-                          className="-my-1 ml-1 size-6 align-middle text-muted-foreground hover:text-foreground"
+                          className="-my-1 ms-1 size-6 align-middle text-muted-foreground hover:text-foreground"
                           label={t(($) => issueAttachmentDetailsOpen
                             ? $.source_context.hide_issue_attachment_details
                             : $.source_context.show_issue_attachment_details)}
@@ -327,7 +327,7 @@ export function SourceContextBadge({
                     </p>
                   )}
                   {showKnownChanges && recognizedIssueAttachmentChangeCount > 0 && issueAttachmentDetailsOpen && (
-                    <ul className="space-y-1 pl-5 text-muted-foreground">
+                    <ul className="space-y-1 ps-5 text-muted-foreground">
                       {addedIssueAttachments.length > 0 && (
                         <li className="list-disc break-words">
                           <span className="font-medium text-foreground">

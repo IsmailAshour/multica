@@ -148,7 +148,7 @@ const IssuePeekPanel = memo(function IssuePeekPanel({ issueId }: { issueId: stri
       aria-label={t(($) => $.peek.panel_label)}
       data-issue-peek=""
       className={cn(
-        "absolute right-2 top-2 z-30 flex w-[min(var(--issue-peek-width),calc(100%-1rem))] flex-col overflow-hidden",
+        "absolute end-2 top-2 z-30 flex w-[min(var(--issue-peek-width),calc(100%-1rem))] flex-col overflow-hidden",
         "rounded-xl bg-background shadow-[var(--floating-shadow)] ring-1 ring-surface-border",
         // Stops above the chat launcher, which owns the dashboard's
         // bottom-right corner — the panel's composer would sit under it.
@@ -334,12 +334,12 @@ function IssuePeekNav() {
           />
           <TooltipContent side="bottom">
             {label}
-            <ShortcutKeycaps shortcut={shortcut} decorative className="ml-1.5" />
+            <ShortcutKeycaps shortcut={shortcut} decorative className="ms-1.5" />
           </TooltipContent>
         </Tooltip>
       ))}
       {position && (
-        <span className="ml-1 text-caption tabular-nums text-muted-foreground">
+        <span className="ms-1 text-caption tabular-nums text-muted-foreground">
           {`${position.index} / ${position.total}`}
         </span>
       )}
@@ -384,7 +384,7 @@ function IssuePeekTrailingActions({ issueId }: { issueId: string }) {
         </TooltipTrigger>
         <TooltipContent side="bottom">
           {t(($) => $.peek.close)}
-          <ShortcutKeycaps shortcut={CLOSE_KEY} decorative className="ml-1.5" />
+          <ShortcutKeycaps shortcut={CLOSE_KEY} decorative className="ms-1.5" />
         </TooltipContent>
       </Tooltip>
     </>

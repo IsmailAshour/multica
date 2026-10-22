@@ -231,7 +231,7 @@ function ComponentsScene() {
           <div className="mt-5 flex items-center gap-3 text-muted-foreground">
             <Inbox className="size-5" />
             <span className="text-body">{t(($) => $.gallery.type.empty)}</span>
-            <Check className="ml-auto size-4 text-success" />
+            <Check className="ms-auto size-4 text-success" />
           </div>
         </Specimen>
       </div>

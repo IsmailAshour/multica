@@ -121,7 +121,7 @@
 .shimmer-text-window {
   position: absolute;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   width: 600%;
   height: 100%;
   pointer-events: none;
@@ -136,7 +136,7 @@
   display: block;
   position: absolute;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   width: calc(100% / 6);
   overflow: hidden;
   text-overflow: ellipsis;

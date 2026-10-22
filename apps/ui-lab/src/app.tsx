@@ -131,7 +131,7 @@ function PreviewFrame({
             ? t(($) => $.lab.preview.source)
             : t(($) => $.lab.preview.preview)}
         </span>
-        <span className="ml-auto">
+        <span className="ms-auto">
           {theme === "light"
             ? t(($) => $.lab.theme.light)
             : t(($) => $.lab.theme.dark)}
@@ -568,7 +568,7 @@ function Workbench({
                   ? t(($) => $.lab.preview.changeCount, { count })
                   : t(($) => $.lab.preview.unchanged)}
               </span>
-              <div className="ml-auto flex gap-1">
+              <div className="ms-auto flex gap-1">
                 <Button
                   variant={original ? "secondary" : "ghost"}
                   size="sm"

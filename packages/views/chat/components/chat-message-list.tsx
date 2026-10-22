@@ -1275,7 +1275,7 @@ function ToolCallRow({ item }: { item: ChatTimelineItem }) {
       </CollapsibleTrigger>
       {hasInput && (
         <CollapsibleContent>
-          <pre className="ml-[18px] mt-0.5 max-h-32 overflow-auto rounded-xs bg-muted/50 p-2 text-caption text-muted-foreground whitespace-pre-wrap break-all">
+          <pre className="ms-[18px] mt-0.5 max-h-32 overflow-auto rounded-xs bg-muted/50 p-2 text-caption text-muted-foreground whitespace-pre-wrap break-all">
             {JSON.stringify(item.input, null, 2)}
           </pre>
         </CollapsibleContent>
@@ -1306,7 +1306,7 @@ function ToolResultRow({ item }: { item: ChatTimelineItem }) {
         </span>
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <pre className="ml-[18px] mt-0.5 max-h-40 overflow-auto rounded-xs bg-muted/50 p-2 text-caption text-muted-foreground whitespace-pre-wrap break-all">
+        <pre className="ms-[18px] mt-0.5 max-h-40 overflow-auto rounded-xs bg-muted/50 p-2 text-caption text-muted-foreground whitespace-pre-wrap break-all">
           {output.length > 4000 ? output.slice(0, 4000) + "\n... (truncated)" : output}
         </pre>
       </CollapsibleContent>
@@ -1328,7 +1328,7 @@ function ThinkingRow({ item }: { item: ChatTimelineItem }) {
         <span className="text-muted-foreground italic truncate">{preview}</span>
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <pre className="ml-[18px] mt-0.5 max-h-40 overflow-auto rounded-xs bg-muted/30 p-2 text-caption text-muted-foreground whitespace-pre-wrap break-words">
+        <pre className="ms-[18px] mt-0.5 max-h-40 overflow-auto rounded-xs bg-muted/30 p-2 text-caption text-muted-foreground whitespace-pre-wrap break-words">
           {text}
         </pre>
       </CollapsibleContent>

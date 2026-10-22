@@ -197,7 +197,7 @@ function FlowRow({
         disabled={!accepts}
         onClick={onToggle}
         aria-expanded={expanded}
-        className="flex w-full items-center gap-2 px-3 py-2 text-left disabled:cursor-default"
+        className="flex w-full items-center gap-2 px-3 py-2 text-start disabled:cursor-default"
       >
         <StatusIcon
           status={statusKey}

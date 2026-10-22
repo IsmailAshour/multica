@@ -172,7 +172,7 @@ export function StepWelcome({
           fills the viewport edge-to-edge. `justify-center` inside
           centers the mock cards vertically, mirroring the left
           column's copy-center layout. */}
-      <div className="hidden border-l bg-muted/40 lg:flex lg:flex-1 lg:flex-col lg:overflow-hidden">
+      <div className="hidden border-s bg-muted/40 lg:flex lg:flex-1 lg:flex-col lg:overflow-hidden">
         <DragStrip />
         <div className="flex flex-1 flex-col items-center justify-center gap-7 px-8 py-8">
           <WelcomeIllustration />

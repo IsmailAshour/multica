@@ -183,7 +183,7 @@ function GanttAxis({
             <div
               key={i}
               className={cn(
-                "absolute top-0 bottom-0 flex items-center justify-center text-micro text-muted-foreground border-l",
+                "absolute top-0 bottom-0 flex items-center justify-center text-micro text-muted-foreground border-s",
                 isMonth
                   ? "border-foreground/15"
                   : isWeek
@@ -268,7 +268,7 @@ function BackgroundLayer({
             {(isMonth || isWeek) && (
               <div
                 className={cn(
-                  "absolute top-0 bottom-0 left-0 w-px",
+                  "absolute top-0 bottom-0 start-0 w-px",
                   isMonth ? "bg-foreground/10" : "bg-foreground/5",
                 )}
               />
@@ -371,7 +371,7 @@ function ScheduledRow({
           href={p.issueDetail(issue.id)}
           newTabTitle={issue.identifier}
           className={cn(
-            "sticky left-0 z-[1] flex shrink-0 items-center gap-2 border-r bg-background px-3 text-body min-w-0",
+            "sticky start-0 z-[1] flex shrink-0 items-center gap-2 border-e bg-background px-3 text-body min-w-0",
             peeked &&
               "bg-[color-mix(in_oklab,var(--brand)_6%,var(--background))] shadow-[inset_2px_0_0_var(--brand)]",
           )}
@@ -557,7 +557,7 @@ export function GanttView({ issues }: { issues: Issue[] }) {
           {/* Sticky header row */}
           <div className="sticky top-0 z-20 flex">
             <div
-              className="sticky left-0 z-30 shrink-0 border-b border-r bg-background"
+              className="sticky start-0 z-30 shrink-0 border-b border-e bg-background"
               style={{ width: LEFT_COL_WIDTH, height: HEADER_HEIGHT }}
             >
               <div className="flex h-full items-end px-3 pb-1.5 text-micro font-medium text-muted-foreground">

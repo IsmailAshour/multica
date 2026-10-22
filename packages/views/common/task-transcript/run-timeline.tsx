@@ -70,10 +70,10 @@ function LaneLabel({ label, total, title }: { label: string; total: string; titl
   return (
     <div
       title={title}
-      className="flex h-[15px] items-baseline gap-1.5 pr-2.5 text-micro text-muted-foreground"
+      className="flex h-[15px] items-baseline gap-1.5 pe-2.5 text-micro text-muted-foreground"
     >
       <span className="truncate">{label}</span>
-      <span className="ml-auto shrink-0 tabular-nums text-faint-foreground">{total}</span>
+      <span className="ms-auto shrink-0 tabular-nums text-faint-foreground">{total}</span>
     </div>
   );
 }
@@ -263,7 +263,7 @@ export function RunTimeline({
           visible once zoomed so the way back is never hidden. */}
       <div
         className={cn(
-          "absolute right-3 top-1 flex items-center gap-0.5 rounded-md border bg-surface/95 p-0.5 shadow-sm transition-opacity",
+          "absolute end-3 top-1 flex items-center gap-0.5 rounded-md border bg-surface/95 p-0.5 shadow-sm transition-opacity",
           zoom > 1 ? "opacity-100" : "opacity-0 focus-within:opacity-100 group-hover/timeline:opacity-100",
         )}
       >

@@ -88,7 +88,7 @@ function MainTopBar({ sidebarMounted }: { sidebarMounted: boolean }) {
     >
       <div
         aria-hidden
-        className="absolute inset-y-0 right-0"
+        className="absolute inset-y-0 end-0"
         style={
           {
             left: toolbarClearance,
@@ -107,7 +107,7 @@ function MainTopBar({ sidebarMounted }: { sidebarMounted: boolean }) {
 }
 
 // The canvas hugs the expanded sidebar with a hairline gap. When the sidebar
-// leaves the main flow, the left margin must grow to mirror the fixed mr-2 so
+// leaves the main flow, the start margin must grow to mirror the fixed me-2 so
 // the floating canvas sits symmetrically inside the window frame.
 function MainCanvas({
   children,
@@ -124,7 +124,7 @@ function MainCanvas({
   return (
     <motion.div
       animate={{ marginLeft: sidebarHidden ? 8 : 2 }}
-      className="relative flex flex-1 min-h-0 flex-col overflow-hidden mr-2 mb-2 rounded-xl bg-page-canvas ring-1 ring-surface-border shadow-[var(--surface-shadow)]"
+      className="relative flex flex-1 min-h-0 flex-col overflow-hidden me-2 mb-2 rounded-xl bg-page-canvas ring-1 ring-surface-border shadow-[var(--surface-shadow)]"
       initial={false}
       transition={toolbarMotion}
     >
