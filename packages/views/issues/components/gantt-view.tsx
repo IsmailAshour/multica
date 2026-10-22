@@ -552,7 +552,8 @@ export function GanttView({ issues }: { issues: Issue[] }) {
       </div>
 
       {/* Body — single scroll container drives both vertical + horizontal */}
-      <div ref={scrollRef} className="flex-1 min-h-0 overflow-auto">
+      {/* Positioned from data with physical offsets and scrollLeft maths, so it stays left-to-right inside RTL pages. */}
+      <div ref={scrollRef} dir="ltr" className="flex-1 min-h-0 overflow-auto">
         <div style={{ minWidth: LEFT_COL_WIDTH + timelineWidth }}>
           {/* Sticky header row */}
           <div className="sticky top-0 z-20 flex">

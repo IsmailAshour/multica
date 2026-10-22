@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { useQuery } from "@tanstack/react-query";
 import { cn } from "@multica/ui/lib/utils";
 import { MulticaIcon } from "@multica/ui/components/common/multica-icon";
+import { useDirection } from "@multica/ui/components/ui/direction";
 import {
   useNavigationInputBindings,
   useTabHistory,
@@ -72,7 +73,10 @@ function useNativeNavigationGestures() {
 function MainTopBar({ sidebarMounted }: { sidebarMounted: boolean }) {
   const { state, isCompact } = useSidebar();
   const sidebarHidden = !sidebarMounted || state === "collapsed" || isCompact;
-  const toolbarClearance: React.CSSProperties["paddingLeft"] = sidebarHidden
+  // The toolbar stays on the physical left (see WindowToolbar). In RTL the
+  // sidebar is on the right, so this bar always clears the whole toolbar.
+  const rtl = useDirection() === "rtl";
+  const toolbarClearance: React.CSSProperties["paddingLeft"] = sidebarHidden || rtl
     ? WINDOW_TOOLBAR_CLEARANCE
     : `max(0px, calc(${WINDOW_TOOLBAR_CLEARANCE}px - var(--sidebar-live-width, var(--sidebar-width))))`;
 
@@ -88,10 +92,11 @@ function MainTopBar({ sidebarMounted }: { sidebarMounted: boolean }) {
     >
       <div
         aria-hidden
-        className="absolute inset-y-0 inset-e-0"
+        className="absolute inset-y-0"
         style={
           {
             left: toolbarClearance,
+            right: 0,
             WebkitAppRegion: "drag",
           } as React.CSSProperties
         }

@@ -204,7 +204,8 @@ export function RunCumulativeChart({
           </div>
         </div>
 
-        <div ref={plotRef} className="relative min-w-0 flex-1">
+        {/* Positioned from data with physical offsets and scrollLeft maths, so it stays left-to-right inside RTL pages. */}
+        <div ref={plotRef} dir="ltr" className="relative min-w-0 flex-1">
           {/* Time gridlines run through the curve and the lanes alike. */}
           {ticks.map((tick) => (
             <span

@@ -204,8 +204,10 @@ export function RunTimeline({
             tall have no fixed point to settle on, and any `:hover` inside
             re-runs the decision every frame — the timeline shakes for as long
             as the pointer rests on a bar (#6278). */}
+        {/* Positioned from data with physical offsets and scrollLeft maths, so it stays left-to-right inside RTL pages. */}
         <div
           ref={scrollerRef}
+          dir="ltr"
           className="min-w-0 flex-1 overflow-x-auto overflow-y-hidden overscroll-x-contain"
         >
           <div className="relative" style={{ width: `${zoom * 100}%` }}>
