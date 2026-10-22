@@ -1,6 +1,6 @@
 // Physical Tailwind utilities (`ml-2`, `left-0`, `text-right`) do not mirror
-// under `dir="rtl"`; their logical forms (`ms-2`, `start-0`, `text-end`) render
-// identically in LTR and flip in RTL. See "RTL in code" in
+// under `dir="rtl"`; their logical forms (`ms-2`, `inset-s-0`, `text-end`)
+// render identically in LTR and flip in RTL. See "RTL in code" in
 // apps/docs/content/docs/developers/conventions.mdx.
 
 const LOGICAL = {
@@ -12,8 +12,11 @@ const LOGICAL = {
   "scroll-mr": "scroll-me",
   "scroll-pl": "scroll-ps",
   "scroll-pr": "scroll-pe",
-  left: "start",
-  right: "end",
+  left: "inset-s",
+  right: "inset-e",
+  // Tailwind 4.2 keeps these as legacy aliases of inset-s / inset-e.
+  start: "inset-s",
+  end: "inset-e",
   "border-l": "border-s",
   "border-r": "border-e",
   "rounded-l": "rounded-s",
@@ -30,13 +33,18 @@ const LOGICAL = {
 
 // Spacing and inset utilities only count with a value, so `left` / `right`
 // words and keys such as `left-panel` are not utilities.
-const SPACED = /^(-?)(scroll-[mp][lr]|[mp][lr]|left|right)-(\d|\[|\(|px$|auto$|full$)/;
+const SPACED = /^(-?)(scroll-[mp][lr]|[mp][lr]|left|right|start|end)-(\d|\[|\(|px$|auto$|full$)/;
 const EDGED = /^(border-[lr]|rounded-[tb]?[lr])(?:-|$)/;
 const WHOLE = /^(text-left|text-right|float-left|float-right)$/;
+// No logical form exists for these; they need an `rtl:` counterpart.
+const PAIRED = /^(origin-(?:left|right|top-left|top-right|bottom-left|bottom-right)|bg-(?:gradient|linear)-to-[lr])$/;
 
-// Utility part of a class: the text after the last variant colon outside
-// brackets, without the `!` important modifier.
-function utilityOf(token) {
+// A half-width pull back centers an element whatever the direction.
+const CENTERING = /(^|[\s"'`:!])(-translate-x-1\/2|-translate-1\/2|translate-x-\[-50%\]|-translate-x-\[50%\])(?=$|[\s"'`!])/;
+
+// Splits a class into its variant chain and utility, ignoring colons
+// inside brackets, without the `!` important modifier.
+function split(token) {
   let depth = 0;
   let start = 0;
   for (let i = 0; i < token.length; i++) {
@@ -45,24 +53,46 @@ function utilityOf(token) {
     else if (c === "]" || c === ")") depth--;
     else if (c === ":" && depth === 0) start = i + 1;
   }
-  return token.slice(start).replace(/^!|!$/g, "");
+  return {
+    variants: token.slice(0, start).split(":").filter(Boolean),
+    utility: token.slice(start).replace(/^!|!$/g, ""),
+  };
 }
 
-export function findPhysicalClasses(value) {
-  const tokens = value.split(/\s+/).filter(Boolean);
-  // `left-1/2 -translate-x-1/2` centers an element and is direction-neutral.
-  const centered = tokens.some((t) => /(^|:)!?-translate-x-1\/2!?$/.test(t));
+// `context` is the surrounding class source (a whole JSX attribute or cn()
+// call), so a translate in a sibling literal still counts as centering.
+export function findPhysicalClasses(value, context = value) {
+  const centered = CENTERING.test(context);
   const found = [];
-  for (const token of tokens) {
-    const utility = utilityOf(token);
+  for (const token of value.split(/\s+/).filter(Boolean)) {
+    const { variants, utility } = split(token);
+    // An explicitly direction-scoped class is already deliberate.
+    if (variants.includes("ltr") || variants.includes("rtl")) continue;
     if (centered && /^-?left-1\/2$/.test(utility)) continue;
-    const match =
-      utility.match(SPACED) ?? utility.match(EDGED) ?? utility.match(WHOLE);
-    if (!match) continue;
-    const prefix = utility.match(SPACED) ? match[2] : match[1];
-    found.push({ token, logical: LOGICAL[prefix] });
+    const spaced = utility.match(SPACED);
+    if (spaced) {
+      found.push({ token, kind: "physical", logical: LOGICAL[spaced[2]] });
+      continue;
+    }
+    const edged = utility.match(EDGED) ?? utility.match(WHOLE);
+    if (edged) {
+      found.push({ token, kind: "physical", logical: LOGICAL[edged[1]] });
+      continue;
+    }
+    if (PAIRED.test(utility) && !new RegExp(`(^|[\\s"'\`:])rtl:(?:[^\\s"'\`]*:)?!?${utility.split("-").slice(0, -1).join("-")}-`).test(context)) {
+      found.push({ token, kind: "unpaired" });
+    }
   }
   return found;
+}
+
+function classContext(node, sourceCode) {
+  for (let current = node.parent; current; current = current.parent) {
+    if (current.type === "JSXAttribute" || current.type === "CallExpression") {
+      return sourceCode.getText(current);
+    }
+  }
+  return null;
 }
 
 /** @type {import("eslint").Rule.RuleModule} */
@@ -72,13 +102,15 @@ const rule = {
     docs: { description: "Use logical Tailwind utilities so layouts mirror in RTL." },
     messages: {
       physical: "`{{token}}` does not mirror in RTL; use the `{{logical}}` form instead.",
+      unpaired: "`{{token}}` has no logical form; add an `rtl:` counterpart in the same class list.",
     },
     schema: [],
   },
   create(context) {
     const check = (node, value) => {
-      for (const { token, logical } of findPhysicalClasses(value)) {
-        context.report({ node, messageId: "physical", data: { token, logical } });
+      const surrounding = classContext(node, context.sourceCode) ?? value;
+      for (const { token, kind, logical } of findPhysicalClasses(value, surrounding)) {
+        context.report({ node, messageId: kind, data: { token, logical } });
       }
     };
     return {
