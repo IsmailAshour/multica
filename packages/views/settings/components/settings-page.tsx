@@ -469,7 +469,7 @@ export function SettingsPage({ extraDeviceTabs = [] }: SettingsPageProps = {}) {
         <div className="relative mx-3 mb-3 hidden shrink-0 md:block">
           <Search
             aria-hidden="true"
-            className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+            className="pointer-events-none absolute inset-s-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
           />
           <input
             type="search"
@@ -507,7 +507,7 @@ export function SettingsPage({ extraDeviceTabs = [] }: SettingsPageProps = {}) {
                 type="button"
                 onClick={() => setQuery("")}
                 aria-label={t(($) => $.page.search_clear)}
-                className="absolute end-1.5 top-1/2 flex size-6 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground hover:bg-surface-hover hover:text-foreground"
+                className="absolute inset-e-1.5 top-1/2 flex size-6 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground hover:bg-surface-hover hover:text-foreground"
               >
                 <X className="size-3.5" aria-hidden="true" />
               </button>

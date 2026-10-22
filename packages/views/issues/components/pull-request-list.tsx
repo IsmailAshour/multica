@@ -215,7 +215,7 @@ function PullRequestRowMenu({ pr, actions }: { pr: GitHubPullRequest; actions: R
             variant="ghost"
             size="icon-xs"
             label={t(($) => $.pr_automation.row_menu)}
-            className="absolute top-0.5 end-0 opacity-0 group-hover/pr:opacity-100 group-focus-within/pr:opacity-100 data-popup-open:opacity-100 [@media(pointer:coarse)]:opacity-100"
+            className="absolute top-0.5 inset-e-0 opacity-0 group-hover/pr:opacity-100 group-focus-within/pr:opacity-100 data-popup-open:opacity-100 [@media(pointer:coarse)]:opacity-100"
           >
             <MoreHorizontal />
           </IconButton>

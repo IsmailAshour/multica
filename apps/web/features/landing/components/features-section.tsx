@@ -255,7 +255,7 @@ function TeammatesVisual() {
                     </button>
                   </PropRow>
                   {statusOpen && (
-                    <div className="absolute start-0 top-full z-10 mt-1 w-44 overflow-hidden rounded-md border bg-popover shadow-md">
+                    <div className="absolute inset-s-0 top-full z-10 mt-1 w-44 overflow-hidden rounded-md border bg-popover shadow-md">
                       {statusCycle.map((s) => (
                         <button
                           type="button"
@@ -288,7 +288,7 @@ function TeammatesVisual() {
                     </button>
                   </PropRow>
                   {priorityOpen && (
-                    <div className="absolute start-0 top-full z-10 mt-1 w-44 overflow-hidden rounded-md border bg-popover shadow-md">
+                    <div className="absolute inset-s-0 top-full z-10 mt-1 w-44 overflow-hidden rounded-md border bg-popover shadow-md">
                       {priorityCycle.map((p) => (
                         <button
                           type="button"

@@ -275,7 +275,7 @@ export function StepSidebar({
                       {!isLast ? (
                         <StepperSeparator
                           className={cn(
-                            "absolute start-2 top-6 -order-1 m-0 w-px -translate-x-1/2 rtl:translate-x-1/2",
+                            "absolute inset-s-2 top-6 -order-1 m-0 w-px -translate-x-1/2 rtl:translate-x-1/2",
                             // StepperSeparator hardcodes a 3rem height for
                             // vertical navs, which overshot the row and drew
                             // the line straight through the next indicator.

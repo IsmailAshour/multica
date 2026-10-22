@@ -3214,7 +3214,7 @@ export function IssueDetail({ issueId, onDelete, onDone, defaultSidebarOpen = tr
         {find.open && (
           <FindBar
             find={find}
-            className={cn("absolute top-14 z-30", isMobile ? "end-4" : "end-10")}
+            className={cn("absolute top-14 z-30", isMobile ? "inset-e-4" : "inset-e-10")}
           />
         )}
         <BreadcrumbHeader
@@ -3960,7 +3960,7 @@ export function IssueDetail({ issueId, onDelete, onDone, defaultSidebarOpen = tr
 
         {/* Thread quick-jump rail — rides the scroll container's right edge,
             next to the scrollbar, where the pointer already is while
-            scrolling (MUL-4522). end-3 is the inset that works in both
+            scrolling (MUL-4522). inset-e-3 is the inset that works in both
             scrollbar modes: it clears a classic scrollbar's ~11px gutter,
             and the rail's own 20px width lands it exactly on the content
             column's px-8 padding when the gutter is 0 (overlay scrollbars),
@@ -3973,7 +3973,7 @@ export function IssueDetail({ issueId, onDelete, onDone, defaultSidebarOpen = tr
             threads={minimapThreads}
             scrollContainerEl={scrollContainerEl}
             onJump={jumpToMinimapTarget}
-            className="absolute bottom-0 end-3 top-12"
+            className="absolute bottom-0 inset-e-3 top-12"
           />
         )}
       </div>

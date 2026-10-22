@@ -466,7 +466,7 @@ export function EnvTab({
                   <button
                     type="button"
                     onClick={() => toggleEnvVisibility(index)}
-                    className="absolute end-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    className="absolute inset-e-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                     aria-label={
                       entry.visible
                         ? t(($) => $.tab_body.env.hide_value_aria)

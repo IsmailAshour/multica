@@ -88,7 +88,7 @@ function MainTopBar({ sidebarMounted }: { sidebarMounted: boolean }) {
     >
       <div
         aria-hidden
-        className="absolute inset-y-0 end-0"
+        className="absolute inset-y-0 inset-e-0"
         style={
           {
             left: toolbarClearance,

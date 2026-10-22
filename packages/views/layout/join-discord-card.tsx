@@ -59,7 +59,7 @@ export function JoinDiscordCard() {
           type="button"
           aria-label={t(($) => $.sidebar.discord_card.dismiss)}
           onClick={dismiss}
-          className="absolute inset-y-0 end-1 my-auto flex size-6 cursor-pointer items-center justify-center rounded-sm text-muted-foreground opacity-0 ring-sidebar-ring transition-opacity hover:bg-sidebar-accent hover:text-foreground focus-visible:opacity-100 focus-visible:ring-2 group-hover/discord:opacity-100 [@media(hover:none)]:opacity-100"
+          className="absolute inset-y-0 inset-e-1 my-auto flex size-6 cursor-pointer items-center justify-center rounded-sm text-muted-foreground opacity-0 ring-sidebar-ring transition-opacity hover:bg-sidebar-accent hover:text-foreground focus-visible:opacity-100 focus-visible:ring-2 group-hover/discord:opacity-100 [@media(hover:none)]:opacity-100"
         >
           <X className="size-3.5" />
         </button>

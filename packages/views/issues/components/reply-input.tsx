@@ -305,7 +305,7 @@ function ReplyInput({
             <p className="text-muted-foreground">{placeholderText}</p>
           </div>
         )}
-        <div className="absolute bottom-0 start-0 end-24 min-w-0">
+        <div className="absolute bottom-0 inset-s-0 inset-e-24 min-w-0">
           <CommentTriggerChips
             recipients={recipients}
             blocked={triggerPreview.blocked}
@@ -314,7 +314,7 @@ function ReplyInput({
             onActionChange={setAction}
           />
         </div>
-        <div className="absolute bottom-0 end-0 flex items-center gap-1">
+        <div className="absolute bottom-0 inset-e-0 flex items-center gap-1">
           <FileUploadButton
             size="sm"
             multiple

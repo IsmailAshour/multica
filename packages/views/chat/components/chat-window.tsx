@@ -746,7 +746,7 @@ export function ChatWindow() {
     "absolute z-50 flex flex-col overflow-hidden bg-surface-raised @container",
     isMobile
       ? "inset-x-0"
-      : "end-2 rounded-xl shadow-[var(--floating-shadow)] ring-1 ring-surface-border",
+      : "inset-e-2 rounded-xl shadow-[var(--floating-shadow)] ring-1 ring-surface-border",
   );
   // Soft keyboards shrink only the *visual* viewport — the layout viewport
   // (and this panel's bottom-anchored parent) keeps its full height, so
@@ -1404,7 +1404,7 @@ function SessionDropdown({
           isConfirmingAction && "bg-destructive/5 hover:bg-destructive/5",
         )}
       >
-        {isCurrent && <span className="absolute start-0 top-1.5 bottom-1.5 w-0.5 rounded-full bg-brand" />}
+        {isCurrent && <span className="absolute inset-s-0 top-1.5 bottom-1.5 w-0.5 rounded-full bg-brand" />}
         {agent ? (
           <ActorAvatar
             actorType="agent"

@@ -618,7 +618,7 @@ export function WorkspaceWakeups() {
           <FilterSelect label={t(($) => $.wakeups.trigger)} value={filters.kind} items={kinds} disabled={batch.isPending} onChange={(kind) => change({ kind })} />
           <FilterSelect label={t(($) => $.wakeups.target_agent)} value={filters.agent_id} items={agents} disabled={batch.isPending} onChange={(agent_id) => change({ agent_id })} />
           <div className="relative">
-            <Search className="pointer-events-none absolute start-2.5 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
+            <Search className="pointer-events-none absolute inset-s-2.5 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
             <Input
               type="search"
               className="h-8 w-52 ps-8"

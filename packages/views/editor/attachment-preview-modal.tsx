@@ -1200,7 +1200,7 @@ function SequenceButton({
         type="button"
         className={cn(
           "dark absolute top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-secondary/80 text-foreground transition-colors enabled:hover:bg-secondary disabled:opacity-30",
-          side === "prev" ? "start-3" : "end-3",
+          side === "prev" ? "inset-s-3" : "inset-e-3",
         )}
         aria-label={label}
         disabled={!onClick}

@@ -148,7 +148,7 @@ const IssuePeekPanel = memo(function IssuePeekPanel({ issueId }: { issueId: stri
       aria-label={t(($) => $.peek.panel_label)}
       data-issue-peek=""
       className={cn(
-        "absolute end-2 top-2 z-30 flex w-[min(var(--issue-peek-width),calc(100%-1rem))] flex-col overflow-hidden",
+        "absolute inset-e-2 top-2 z-30 flex w-[min(var(--issue-peek-width),calc(100%-1rem))] flex-col overflow-hidden",
         "rounded-xl bg-background shadow-[var(--floating-shadow)] ring-1 ring-surface-border",
         // Stops above the chat launcher, which owns the dashboard's
         // bottom-right corner — the panel's composer would sit under it.

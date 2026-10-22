@@ -263,7 +263,7 @@ export function RunTimeline({
           visible once zoomed so the way back is never hidden. */}
       <div
         className={cn(
-          "absolute end-3 top-1 flex items-center gap-0.5 rounded-md border bg-surface/95 p-0.5 shadow-sm transition-opacity",
+          "absolute inset-e-3 top-1 flex items-center gap-0.5 rounded-md border bg-surface/95 p-0.5 shadow-sm transition-opacity",
           zoom > 1 ? "opacity-100" : "opacity-0 focus-within:opacity-100 group-hover/timeline:opacity-100",
         )}
       >

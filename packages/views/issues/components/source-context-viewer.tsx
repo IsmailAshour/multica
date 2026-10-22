@@ -223,7 +223,7 @@ export function SourceContextBadge({
                 timeStyle: "short",
               }).format(new Date(current.captured_at))}
             </DialogDescription>
-            <div className="absolute end-3 top-3 flex items-center gap-1">
+            <div className="absolute inset-e-3 top-3 flex items-center gap-1">
               <IconButton
                 type="button"
                 variant="ghost"

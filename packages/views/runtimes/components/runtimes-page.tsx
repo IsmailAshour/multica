@@ -636,7 +636,7 @@ function RuntimesToolbar({
   return (
     <div className="flex min-w-0 items-center gap-2">
       <div className="relative min-w-0 flex-1 sm:flex-none">
-        <Search className="pointer-events-none absolute start-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
+        <Search className="pointer-events-none absolute inset-s-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
         <Input
           value={query}
           onChange={(e) => onQueryChange(e.target.value)}
@@ -865,7 +865,7 @@ function MachineRow({
             dot={
               <HealthDot
                 health={machine.health}
-                className="absolute -bottom-0.5 -end-0.5 ring-2 ring-card"
+                className="absolute -bottom-0.5 -inset-e-0.5 ring-2 ring-card"
               />
             }
           >
@@ -948,7 +948,7 @@ function QoderRow({
           tile={
             <RowTile
               dot={
-                <span className="absolute -bottom-0.5 -end-0.5 size-2 rounded-full bg-warning ring-2 ring-card" />
+                <span className="absolute -bottom-0.5 -inset-e-0.5 size-2 rounded-full bg-warning ring-2 ring-card" />
               }
             >
               {logo}
@@ -1005,7 +1005,7 @@ function QoderRow({
             dot={
               <span
                 className={cn(
-                  "absolute -bottom-0.5 -end-0.5 size-2 rounded-full ring-2 ring-card",
+                  "absolute -bottom-0.5 -inset-e-0.5 size-2 rounded-full ring-2 ring-card",
                   dotTone,
                 )}
               />

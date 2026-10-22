@@ -616,7 +616,7 @@ export function TableIssueSearch({
     <div className="relative w-56 shrink-0">
       <Search
         aria-hidden
-        className="pointer-events-none absolute start-2 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground"
+        className="pointer-events-none absolute inset-s-2 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground"
       />
       <Input
         type="text"
@@ -636,7 +636,7 @@ export function TableIssueSearch({
           label={clearLabel}
           tooltipSide="bottom"
           onClick={() => onChange("")}
-          className="absolute end-0.5 top-0.5 text-muted-foreground"
+          className="absolute inset-e-0.5 top-0.5 text-muted-foreground"
         >
           <X className="size-3" />
         </IconButton>
@@ -792,7 +792,7 @@ export function InlineTitle({
             * pointer while it is somewhere else entirely. The fade still
             * follows the row's hover colour, since that is what the cell is
             * painted with when they appear. */}
-          <span className="pointer-events-none absolute inset-y-0 end-0 flex items-center gap-0.5 bg-gradient-to-l from-background from-70% to-transparent pe-1 ps-8 opacity-0 transition-opacity group-hover:from-[color-mix(in_oklab,var(--muted)_50%,var(--background))] group-hover/title:pointer-events-auto group-hover/title:opacity-100 focus-within:pointer-events-auto focus-within:opacity-100">
+          <span className="pointer-events-none absolute inset-y-0 inset-e-0 flex items-center gap-0.5 bg-gradient-to-l from-background from-70% to-transparent pe-1 ps-8 opacity-0 transition-opacity group-hover:from-[color-mix(in_oklab,var(--muted)_50%,var(--background))] group-hover/title:pointer-events-auto group-hover/title:opacity-100 focus-within:pointer-events-auto focus-within:opacity-100">
             <DeferredTooltip
               content={createSubIssueLabel}
               trigger={
@@ -911,7 +911,7 @@ export function IssueTableGroupRow({
       <TableCell colSpan={colSpan} className="h-9 px-4 py-1.5">
         <button
           type="button"
-          className="sticky start-4 flex w-fit items-center gap-2 text-caption font-medium"
+          className="sticky inset-s-4 flex w-fit items-center gap-2 text-caption font-medium"
         >
           {group.collapsed ? (
             <ChevronRight className="size-3.5" />
@@ -2567,7 +2567,7 @@ export function TableView({
                         * body text rather than an error, and where reaching the
                         * end of a paginated branch said nothing at all. The row
                         * only supplies the cell it lives in. */}
-                      <div className="sticky start-0 w-full">
+                      <div className="sticky inset-s-0 w-full">
                         <ListLoadMoreFooter
                           hasMore={
                             loadMoreRow.state === "loading" ||

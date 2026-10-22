@@ -359,7 +359,7 @@ export function RunCumulativeChart({
             last && Math.abs(yPct(v) - yPct(last.cost)) < 12 ? null : (
               <span
                 key={v}
-                className="absolute start-1 -translate-y-1/2 text-muted-foreground"
+                className="absolute inset-s-1 -translate-y-1/2 text-muted-foreground"
                 style={{ top: `${yPct(v)}%` }}
               >
                 {formatTick(v)}
@@ -368,7 +368,7 @@ export function RunCumulativeChart({
           )}
           {last && (
             <span
-              className="absolute start-1 -translate-y-1/2 font-medium text-foreground"
+              className="absolute inset-s-1 -translate-y-1/2 font-medium text-foreground"
               style={{ top: `${yPct(last.cost)}%` }}
             >
               {formatUsd(last.cost)}

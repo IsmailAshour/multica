@@ -172,7 +172,7 @@ export function RichTableDialog({ model, open, onOpenChange, getMarkdown }: Rich
           <div className="relative w-56 shrink-0">
             <Search
               aria-hidden
-              className="pointer-events-none absolute top-1/2 start-2 size-3.5 -translate-y-1/2 text-muted-foreground"
+              className="pointer-events-none absolute top-1/2 inset-s-2 size-3.5 -translate-y-1/2 text-muted-foreground"
             />
             <Input
               type="text"
@@ -192,7 +192,7 @@ export function RichTableDialog({ model, open, onOpenChange, getMarkdown }: Rich
                 label={t(($) => $.table.clear_filter)}
                 tooltipSide="bottom"
                 onClick={() => setFilter("")}
-                className="absolute top-0.5 end-0.5 text-muted-foreground"
+                className="absolute top-0.5 inset-e-0.5 text-muted-foreground"
               >
                 <X className="size-3" />
               </IconButton>

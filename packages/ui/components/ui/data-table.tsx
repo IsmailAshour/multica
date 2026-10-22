@@ -495,7 +495,7 @@ export function DataTable<TData>({
                             tabIndex={0}
                             className={cn(
                               // The line sits exactly on the column's own
-                              // border (hence -end-px, since `end-0` would
+                              // border (hence -inset-e-px, since `inset-e-0` would
                               // land just inside it and read as a double rule)
                               // and recolours it. Three states have to stay
                               // apart on one hairline: at rest it is the faint
@@ -504,14 +504,14 @@ export function DataTable<TData>({
                               // brightening rather than fading, so the edge
                               // being moved stays the most definite thing on
                               // screen even once the pointer leaves the handle.
-                              // end-0, never a negative offset: the <th> is
+                              // inset-e-0, never a negative offset: the <th> is
                               // overflow-hidden and clips at its padding edge,
                               // so anything nudged out to sit on the border
                               // itself is simply not painted. The bar lands
                               // just inside the rule instead, and at 2px it
                               // stays legible next to it.
-                              "absolute top-0 end-0 h-full w-2 cursor-col-resize touch-none select-none outline-none",
-                              "after:absolute after:inset-y-0 after:end-0 after:w-0.5 after:bg-transparent after:transition-colors after:duration-100",
+                              "absolute top-0 inset-e-0 h-full w-2 cursor-col-resize touch-none select-none outline-none",
+                              "after:absolute after:inset-y-0 after:inset-e-0 after:w-0.5 after:bg-transparent after:transition-colors after:duration-100",
                               "hover:after:bg-brand/60 focus-visible:after:bg-brand/60",
                               resizingColumnId === header.column.id &&
                                 "after:bg-brand after:transition-none",

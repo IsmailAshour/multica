@@ -174,7 +174,7 @@ const NAV_ITEM_CLASS_NAME =
 function DraftDot() {
   const hasDraft = useIssueDraftStore((s) => s.hasDraft());
   if (!hasDraft) return null;
-  return <span className="absolute top-0 end-0 size-1.5 rounded-full bg-brand" />;
+  return <span className="absolute top-0 inset-e-0 size-1.5 rounded-full bg-brand" />;
 }
 
 /**
@@ -627,7 +627,7 @@ export function AppSidebar({ topSlot, searchSlot, headerClassName, headerStyle }
                             workspace's own unread stays on the Inbox nav count
                             (below), so it is deliberately excluded here. */}
                         {(myInvitations.length > 0 || otherWorkspaceUnread) && (
-                          <span className="absolute -top-0.5 -end-0.5 size-2 rounded-full bg-brand ring-1 ring-sidebar" />
+                          <span className="absolute -top-0.5 -inset-e-0.5 size-2 rounded-full bg-brand ring-1 ring-sidebar" />
                         )}
                       </span>
                       <span className="flex-1 truncate font-medium">

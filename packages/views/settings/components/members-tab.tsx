@@ -936,7 +936,7 @@ export function MembersTab() {
               <div className="relative w-full sm:w-56">
                 <Search
                   aria-hidden="true"
-                  className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+                  className="pointer-events-none absolute inset-s-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
                 />
                 <Input
                   type="search"

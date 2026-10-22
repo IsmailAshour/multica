@@ -570,7 +570,7 @@ function RunActivityChart({
           {yTicks.map((v) => (
             <span
               key={v}
-              className="absolute start-1 -translate-y-1/2 text-muted-foreground"
+              className="absolute inset-s-1 -translate-y-1/2 text-muted-foreground"
               style={{ top: `${(1 - v / yMax) * 100}%` }}
             >
               {formatValue(v)}

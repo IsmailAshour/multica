@@ -197,7 +197,7 @@ export function ChangelogPageClient() {
                 <div className="relative mt-5">
                   <span
                     aria-hidden="true"
-                    className="pointer-events-none absolute start-[4px] top-7 bottom-2 w-px bg-[#0a0d12]/10"
+                    className="pointer-events-none absolute inset-s-[4px] top-7 bottom-2 w-px bg-[#0a0d12]/10"
                   />
 
                   <ol className="space-y-5">

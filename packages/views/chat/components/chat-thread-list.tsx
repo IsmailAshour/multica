@@ -462,7 +462,7 @@ export function ChatThreadList({
             changes the row height (which was making the list jump). Keyboard
             focus reveals them too, so they are reachable without a mouse. */}
         {!isConfirmingAction && (
-          <div className="absolute inset-y-0 end-1 hidden items-center gap-0.5 rounded-md bg-gradient-to-l from-accent from-40% to-transparent ps-10 pe-1 [@media(hover:hover)]:group-hover/row:flex [@media(hover:hover)]:group-focus-within/row:flex">
+          <div className="absolute inset-y-0 inset-e-1 hidden items-center gap-0.5 rounded-md bg-gradient-to-l from-accent from-40% to-transparent ps-10 pe-1 [@media(hover:hover)]:group-hover/row:flex [@media(hover:hover)]:group-focus-within/row:flex">
             {rowActions.map((action) => (
               <RowAction
                 key={action.key}

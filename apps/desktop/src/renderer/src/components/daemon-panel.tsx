@@ -274,7 +274,7 @@ export function DaemonPanel({
         <div className="flex shrink-0 flex-wrap items-center gap-2 border-b px-4 py-2">
           {/* Search */}
           <div className="relative w-56">
-            <Search className="pointer-events-none absolute start-2 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
+            <Search className="pointer-events-none absolute inset-s-2 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}

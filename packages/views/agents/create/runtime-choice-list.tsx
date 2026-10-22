@@ -100,7 +100,7 @@ function Tile({ children, dot }: { children: ReactNode; dot?: ReactNode }) {
   );
 }
 
-const TILE_DOT = "absolute -bottom-0.5 -end-0.5 ring-2 ring-card";
+const TILE_DOT = "absolute -bottom-0.5 -inset-e-0.5 ring-2 ring-card";
 
 function GroupHeader({
   icon: Icon,

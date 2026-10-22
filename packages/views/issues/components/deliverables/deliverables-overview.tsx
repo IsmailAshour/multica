@@ -106,7 +106,7 @@ export function DeliverablesOverview({
         <DialogContent
           showCloseButton={false}
           style={NO_DRAG}
-          className="dark top-0 start-0 flex h-dvh max-h-none w-screen max-w-none translate-x-0 translate-y-0 flex-col gap-0 overflow-hidden rounded-none bg-black/95 p-0 text-foreground shadow-none ring-0 backdrop-blur-xl sm:max-w-none"
+          className="dark top-0 inset-s-0 flex h-dvh max-h-none w-screen max-w-none translate-x-0 translate-y-0 flex-col gap-0 overflow-hidden rounded-none bg-black/95 p-0 text-foreground shadow-none ring-0 backdrop-blur-xl sm:max-w-none"
         >
           <OverviewBody
             identifier={identifier}

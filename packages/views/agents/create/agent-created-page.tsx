@@ -61,7 +61,7 @@ export function AgentCreatedPage({ agentId }: { agentId: string }) {
                 />
                 <CircleCheck
                   aria-hidden="true"
-                  className="absolute -bottom-1 -end-1 size-5 rounded-full bg-background text-success"
+                  className="absolute -bottom-1 -inset-e-1 size-5 rounded-full bg-background text-success"
                 />
               </span>
             )}

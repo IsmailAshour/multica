@@ -456,7 +456,7 @@ export function ProjectResourcesSection({ projectId }: { projectId: string }) {
               {workspace?.repos && workspace.repos.length > 0 && (
                 <>
                   <div className="relative">
-                    <Search className="pointer-events-none absolute start-2 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
+                    <Search className="pointer-events-none absolute inset-s-2 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
                     <input
                       type="text"
                       value={repoSearch}

@@ -125,7 +125,7 @@ interface ThreadMinimapProps {
   scrollContainerEl: HTMLElement | null;
   /** Called with a thread root id or a reply id. */
   onJump: (commentId: string) => void;
-  /** Positioning within the page (e.g. `absolute end-3 top-12 bottom-0`) — owned by the caller, like FindBar. */
+  /** Positioning within the page (e.g. `absolute inset-e-3 top-12 bottom-0`) — owned by the caller, like FindBar. */
   className?: string;
 }
 
@@ -604,7 +604,7 @@ export function ThreadMinimap({
           onPointerLeave={scheduleClose}
           onFocusCapture={cancelClose}
           onBlurCapture={scheduleClose}
-          className="pointer-events-auto absolute end-8 top-1/2 max-h-[calc(100%-3rem)] w-80 max-w-[calc(100vw-4rem)] -translate-y-1/2 overflow-y-auto overscroll-contain rounded-xl bg-popover p-2 text-body text-popover-foreground shadow-lg ring-1 ring-foreground/10"
+          className="pointer-events-auto absolute inset-e-8 top-1/2 max-h-[calc(100%-3rem)] w-80 max-w-[calc(100vw-4rem)] -translate-y-1/2 overflow-y-auto overscroll-contain rounded-xl bg-popover p-2 text-body text-popover-foreground shadow-lg ring-1 ring-foreground/10"
         >
           {/* One <li> per item, replies included, so row index === item index. */}
           <ul>
@@ -625,7 +625,7 @@ export function ThreadMinimap({
                   // tying them to the thread row above.
                   <li
                     key={item.id}
-                    className="relative ms-3 before:absolute before:inset-y-0 before:start-0 before:w-px before:bg-surface-border"
+                    className="relative ms-3 before:absolute before:inset-y-0 before:inset-s-0 before:w-px before:bg-surface-border"
                   >
                     <button
                       {...rowProps}
