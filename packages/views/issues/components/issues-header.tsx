@@ -1117,7 +1117,7 @@ function DateSubContent({
               </Button>
             }
           />
-          <PopoverContent align="start" side="right" className="w-auto gap-0 p-0">
+          <PopoverContent align="start" side="inline-end" className="w-auto gap-0 p-0">
             <Calendar
               mode="range"
               selected={range}

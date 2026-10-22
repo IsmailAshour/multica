@@ -313,7 +313,7 @@ export function SourceContextBadge({
                           <ChevronRight
                             className={cn(
                               "size-3.5 transition-transform motion-reduce:transition-none",
-                              issueAttachmentDetailsOpen && "rotate-90",
+                              issueAttachmentDetailsOpen && "rotate-90 rtl:-rotate-90",
                             )}
                             aria-hidden
                           />

@@ -305,7 +305,7 @@ export function ProjectDetail({ projectId }: { projectId: string }) {
           onClick={() => setPropertiesOpen(!propertiesOpen)}
         >
           {t(($) => $.detail.section_properties)}
-          <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${propertiesOpen ? "rotate-90" : ""}`} />
+          <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${propertiesOpen ? "rotate-90 rtl:-rotate-90" : ""}`} />
         </button>
         {propertiesOpen && <div className="space-y-0.5 ps-2">
           <PropRow label={t(($) => $.table.status)}>
@@ -445,7 +445,7 @@ export function ProjectDetail({ projectId }: { projectId: string }) {
               onClick={() => setProgressOpen(!progressOpen)}
             >
               {t(($) => $.detail.section_progress)}
-              <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${progressOpen ? "rotate-90" : ""}`} />
+              <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${progressOpen ? "rotate-90 rtl:-rotate-90" : ""}`} />
             </button>
             {progressOpen && <div className="ps-2 flex items-center gap-3">
               <div className="relative h-2 flex-1 rounded-full bg-muted overflow-hidden">
@@ -470,7 +470,7 @@ export function ProjectDetail({ projectId }: { projectId: string }) {
           onClick={() => setDescriptionOpen(!descriptionOpen)}
         >
           {t(($) => $.detail.section_description)}
-          <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${descriptionOpen ? "rotate-90" : ""}`} />
+          <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${descriptionOpen ? "rotate-90 rtl:-rotate-90" : ""}`} />
         </button>
         {descriptionOpen && <div className="ps-2">
           <ContentEditor
@@ -598,7 +598,7 @@ export function ProjectDetail({ projectId }: { projectId: string }) {
         )}
         {isMobile && (
           <Sheet open={mobileSidebarOpen} onOpenChange={setMobileSidebarOpen}>
-            <SheetContent side="right" showCloseButton={false} className="w-[320px] overflow-y-auto p-4">
+            <SheetContent side="end" showCloseButton={false} className="w-[320px] overflow-y-auto p-4">
               {sidebarContent}
             </SheetContent>
           </Sheet>

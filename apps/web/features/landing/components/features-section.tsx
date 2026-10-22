@@ -238,7 +238,7 @@ function TeammatesVisual() {
           <div className="p-4 space-y-4">
             <div>
               <div className="flex items-center gap-1 text-caption font-medium mb-2">
-                <ChevronRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground rotate-90" />
+                <ChevronRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground rotate-90 rtl:-rotate-90" />
                 Properties
               </div>
               <div className="space-y-0.5 ps-2">
@@ -467,7 +467,7 @@ function AutonomousVisual() {
                     className="flex w-full items-center gap-2 rounded-xs px-2 py-1 text-caption hover:bg-info/5 transition-colors"
                     onClick={() => setExpanded(isExpanded ? null : i)}
                   >
-                    <ChevronRight className={cn("h-3 w-3 shrink-0 text-muted-foreground transition-transform", isExpanded && "rotate-90")} />
+                    <ChevronRight className={cn("h-3 w-3 shrink-0 text-muted-foreground transition-transform", isExpanded && "rotate-90 rtl:-rotate-90")} />
                     <Brain className="h-3 w-3 shrink-0 text-info/60" />
                     <span className="truncate italic text-muted-foreground">{item.content}</span>
                   </button>
@@ -482,7 +482,7 @@ function AutonomousVisual() {
                     className="flex w-full items-center gap-2 rounded-xs px-2 py-1 text-caption hover:bg-info/5 transition-colors"
                     onClick={() => setExpanded(isExpanded ? null : i)}
                   >
-                    <ChevronRight className={cn("h-3 w-3 shrink-0 text-muted-foreground transition-transform", isExpanded && "rotate-90")} />
+                    <ChevronRight className={cn("h-3 w-3 shrink-0 text-muted-foreground transition-transform", isExpanded && "rotate-90 rtl:-rotate-90")} />
                     <span className="shrink-0 font-semibold">{item.tool}</span>
                     <span className="truncate text-muted-foreground">{item.summary}</span>
                   </button>
@@ -497,7 +497,7 @@ function AutonomousVisual() {
                   className="flex w-full items-center gap-2 rounded-xs px-2 py-1 text-caption hover:bg-accent/50 transition-colors"
                   onClick={() => setExpanded(isExpanded ? null : i)}
                 >
-                  <ChevronRight className={cn("h-3 w-3 shrink-0 text-muted-foreground transition-transform", isExpanded && "rotate-90")} />
+                  <ChevronRight className={cn("h-3 w-3 shrink-0 text-muted-foreground transition-transform", isExpanded && "rotate-90 rtl:-rotate-90")} />
                   <span className="shrink-0 text-muted-foreground">result:</span>
                   <span className="truncate text-muted-foreground">{item.preview}</span>
                 </button>
@@ -616,7 +616,7 @@ function SkillsVisual() {
                   >
                     {f.isDir ? (
                       <>
-                        <ChevronRight className={cn("h-3 w-3 shrink-0 transition-transform", f.open && "rotate-90")} />
+                        <ChevronRight className={cn("h-3 w-3 shrink-0 transition-transform", f.open && "rotate-90 rtl:-rotate-90")} />
                         {f.open ? <FolderOpen className="h-3.5 w-3.5 shrink-0 text-muted-foreground" /> : <Folder className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />}
                       </>
                     ) : f.icon === "md" ? (

@@ -210,7 +210,7 @@ export function InlineCommentRun({ run, className, viewState, showIdentity = fal
                 <RunActivitySummary summary={summary} /></>
             : <span className={cn(showIdentity && "@max-[32rem]/run:sr-only")}>{activityLabel}</span>}
           {!showProgress && stepLabel && <span className="text-faint-foreground @max-[32rem]/run:hidden">· {stepLabel}</span>}
-          <ChevronRight ref={state.disclosure.chevronRef} aria-hidden className={cn("size-3.5 shrink-0", expanded && "rotate-90")} />
+          <ChevronRight ref={state.disclosure.chevronRef} aria-hidden className={cn("size-3.5 shrink-0", expanded && "rotate-90 rtl:-rotate-90")} />
         </button>
         <span className={cn("shrink-0 whitespace-nowrap text-caption tabular-nums text-muted-foreground", showIdentity && !active && "@max-[32rem]/run:hidden")}>{elapsed}</span>
         {stopButton}
@@ -345,7 +345,7 @@ function InlineStep({ row, live, formatText }: { row: TraceRow; live: boolean; f
       {(grouped || call) && <span className="shrink-0 text-micro text-muted-foreground">
         {grouped ? t(($) => $.inline_run.steps, { count: row.steps.length }) : row.tool}
       </span>}
-      <ChevronRight ref={disclosure.chevronRef} aria-hidden className={cn("size-3 shrink-0 text-muted-foreground", open && "rotate-90")} />
+      <ChevronRight ref={disclosure.chevronRef} aria-hidden className={cn("size-3 shrink-0 text-muted-foreground", open && "rotate-90 rtl:-rotate-90")} />
     </summary>
     {open && <div className="min-w-0 space-y-2 overflow-hidden ps-5.5">
       {grouped ? <>

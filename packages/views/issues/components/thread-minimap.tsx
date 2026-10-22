@@ -714,7 +714,7 @@ export function ThreadMinimap({
                         aria-hidden="true"
                         className={cn(
                           "size-3.5 transition-transform duration-150 ease-out motion-reduce:transition-none",
-                          !folded && "rotate-90",
+                          !folded && "rotate-90 rtl:-rotate-90",
                         )}
                       />
                     </button>

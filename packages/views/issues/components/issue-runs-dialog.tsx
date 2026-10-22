@@ -942,7 +942,7 @@ function RunListRow({ run, issueId }: { run: TimelineRun; issueId: string }) {
                 onClick={() => setExpanded((v) => !v)}
                 className="flex size-6 items-center justify-center rounded-xs text-muted-foreground transition-colors outline-none hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
               >
-                <ChevronRight aria-hidden className={cn("size-3.5 transition-transform", expanded && "rotate-90")} />
+                <ChevronRight aria-hidden className={cn("size-3.5 transition-transform", expanded && "rotate-90 rtl:-rotate-90")} />
               </button>
             }
           />

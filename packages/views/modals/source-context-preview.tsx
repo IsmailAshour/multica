@@ -127,7 +127,7 @@ export function SourceContextPreviewCard({
         aria-expanded={expanded}
         onClick={toggleExpanded}
       >
-        <ChevronRight className={cn("size-3.5 shrink-0 transition-transform motion-reduce:transition-none", expanded && "rotate-90")} aria-hidden />
+        <ChevronRight className={cn("size-3.5 shrink-0 transition-transform motion-reduce:transition-none", expanded && "rotate-90 rtl:-rotate-90")} aria-hidden />
         <span className="min-w-0 truncate font-medium">
           {t(($) => $.source_context.preview_summary, {
             identifier: preview.source_issue.identifier,

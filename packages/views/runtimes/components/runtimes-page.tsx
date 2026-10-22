@@ -788,7 +788,7 @@ function RowChevron() {
     <ListGridCell className="justify-end">
       <ChevronRight
         aria-hidden="true"
-        className="size-4 text-faint-foreground transition-transform group-hover/row:translate-x-0.5 group-hover/row:text-muted-foreground"
+        className="size-4 text-faint-foreground transition-transform group-hover/row:translate-x-0.5 rtl:group-hover/row:-translate-x-0.5 group-hover/row:text-muted-foreground"
       />
     </ListGridCell>
   );

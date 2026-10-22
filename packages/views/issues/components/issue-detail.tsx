@@ -2738,7 +2738,7 @@ export function IssueDetail({ issueId, onDelete, onDone, defaultSidebarOpen = tr
           onClick={() => setPropertiesOpen(!propertiesOpen)}
         >
           {t(($) => $.detail.section_properties)}
-          <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${propertiesOpen ? "rotate-90" : ""}`} />
+          <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${propertiesOpen ? "rotate-90 rtl:-rotate-90" : ""}`} />
         </button>
         {propertiesOpen && <div className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-0.5 ps-2">
           {/* Core props — always rendered. */}
@@ -2957,7 +2957,7 @@ export function IssueDetail({ issueId, onDelete, onDone, defaultSidebarOpen = tr
             onClick={() => setParentIssueOpen(!parentIssueOpen)}
           >
             {t(($) => $.detail.section_parent_issue)}
-            <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${parentIssueOpen ? "rotate-90" : ""}`} />
+            <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${parentIssueOpen ? "rotate-90 rtl:-rotate-90" : ""}`} />
           </button>
           {parentIssueOpen && <div className="ps-2">
             <div className="flex items-center gap-0.5 rounded-md px-2 -mx-2 hover:bg-accent/50 transition-colors group">
@@ -3025,7 +3025,7 @@ export function IssueDetail({ issueId, onDelete, onDone, defaultSidebarOpen = tr
           onClick={() => setDetailsOpen(!detailsOpen)}
         >
           {t(($) => $.detail.section_details)}
-          <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${detailsOpen ? "rotate-90" : ""}`} />
+          <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${detailsOpen ? "rotate-90 rtl:-rotate-90" : ""}`} />
         </button>
         {detailsOpen && <div className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-0.5 ps-2">
           <PropRow label={t(($) => $.detail.prop_created_by)}>
@@ -4015,7 +4015,7 @@ export function IssueDetail({ issueId, onDelete, onDone, defaultSidebarOpen = tr
       <div className="flex flex-1 min-h-0">
         {detailContent}
         <Sheet open={mobileSidebarOpen} onOpenChange={setMobileSidebarOpen}>
-          <SheetContent side="right" showCloseButton={false} className="w-[320px] overflow-y-auto p-4">
+          <SheetContent side="end" showCloseButton={false} className="w-[320px] overflow-y-auto p-4">
             {sidebarContent}
           </SheetContent>
         </Sheet>

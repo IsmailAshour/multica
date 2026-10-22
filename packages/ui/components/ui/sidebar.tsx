@@ -286,7 +286,7 @@ function SidebarProvider({
 }
 
 function Sidebar({
-  side = "left",
+  side = "start",
   variant = "sidebar",
   collapsible = "offcanvas",
   className,
@@ -294,7 +294,7 @@ function Sidebar({
   dir,
   ...props
 }: React.ComponentProps<"div"> & {
-  side?: "left" | "right"
+  side?: "start" | "end"
   variant?: "sidebar" | "floating" | "inset"
   collapsible?: "offcanvas" | "icon" | "none"
 }) {
@@ -360,7 +360,7 @@ function Sidebar({
         className={cn(
           "relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-out motion-reduce:transition-none",
           "group-data-[collapsible=offcanvas]:w-0",
-          "group-data-[side=right]:rotate-180",
+          "group-data-[side=end]:rotate-180",
           variant === "floating" || variant === "inset"
             ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]"
             : "group-data-[collapsible=icon]:w-(--sidebar-width-icon)"
@@ -371,11 +371,11 @@ function Sidebar({
         data-side={side}
         className={cn(
           "fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-out motion-reduce:transition-none lg:flex",
-          "data-[side=left]:left-0 data-[side=left]:group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)] data-[side=right]:right-0 data-[side=right]:group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
+          "data-[side=start]:start-0 data-[side=start]:group-data-[collapsible=offcanvas]:start-[calc(var(--sidebar-width)*-1)] data-[side=end]:end-0 data-[side=end]:group-data-[collapsible=offcanvas]:end-[calc(var(--sidebar-width)*-1)]",
           // Adjust the padding for floating and inset variants.
           variant === "floating" || variant === "inset"
             ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
-            : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
+            : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=start]:border-e group-data-[side=end]:border-s",
           className
         )}
         {...props}
@@ -463,7 +463,12 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
         startX: e.clientX,
         startWidth,
         latestWidth: startWidth,
-        direction: sidebarEl.dataset.side === "right" ? -1 : 1,
+        // Dragging away from the inline-start edge widens the sidebar.
+        direction:
+          (sidebarEl.dataset.side === "end") !==
+          (getComputedStyle(sidebarEl).direction === "rtl")
+            ? -1
+            : 1,
         wrapperEl,
         gapEl,
         containerEl,
@@ -571,10 +576,10 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
       onPointerDown={onPointerDown}
       title={toggleLabel}
       className={cn(
-        "absolute inset-y-0 z-20 hidden w-4 touch-none cursor-ew-resize transition-[transform,background-color] ease-linear group-data-[side=left]:-right-4 group-data-[side=right]:left-0 after:absolute after:inset-y-0 after:start-1/2 after:w-[2px] hover:after:bg-sidebar-border sm:flex ltr:-translate-x-1/2 rtl:-translate-x-1/2",
+        "absolute inset-y-0 z-20 hidden w-4 touch-none cursor-ew-resize transition-[transform,background-color] ease-linear group-data-[side=start]:-end-4 group-data-[side=end]:start-0 after:absolute after:inset-y-0 after:start-1/2 after:w-[2px] hover:after:bg-sidebar-border sm:flex ltr:-translate-x-1/2 rtl:translate-x-1/2",
         "group-data-[collapsible=offcanvas]:translate-x-0 group-data-[collapsible=offcanvas]:after:start-full hover:group-data-[collapsible=offcanvas]:bg-sidebar",
-        "[[data-side=left][data-collapsible=offcanvas]_&]:-right-2",
-        "[[data-side=right][data-collapsible=offcanvas]_&]:-left-2",
+        "[[data-side=start][data-collapsible=offcanvas]_&]:-end-2",
+        "[[data-side=end][data-collapsible=offcanvas]_&]:-start-2",
         className
       )}
       {...props}
@@ -821,7 +826,7 @@ function SidebarMenuButton({
     <Tooltip>
       {comp}
       <TooltipContent
-        side="right"
+        side="inline-end"
         align="center"
         hidden={state !== "collapsed" || isCompact}
         {...tooltip}
@@ -921,7 +926,7 @@ function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul">) {
       data-slot="sidebar-menu-sub"
       data-sidebar="menu-sub"
       className={cn(
-        "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-s border-sidebar-border px-2.5 py-0.5 group-data-[collapsible=icon]:hidden",
+        "mx-3.5 flex min-w-0 translate-x-px rtl:-translate-x-px flex-col gap-1 border-s border-sidebar-border px-2.5 py-0.5 group-data-[collapsible=icon]:hidden",
         className
       )}
       {...props}
@@ -959,7 +964,7 @@ function SidebarMenuSubButton({
     props: mergeProps<"a">(
       {
         className: cn(
-          "flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 text-sidebar-foreground ring-sidebar-ring outline-hidden group-data-[collapsible=icon]:hidden hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[size=md]:text-body data-[size=sm]:text-caption data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-active:hover:bg-sidebar-accent [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground",
+          "flex h-7 min-w-0 -translate-x-px rtl:translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 text-sidebar-foreground ring-sidebar-ring outline-hidden group-data-[collapsible=icon]:hidden hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[size=md]:text-body data-[size=sm]:text-caption data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-active:hover:bg-sidebar-accent [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground",
           className
         ),
       },

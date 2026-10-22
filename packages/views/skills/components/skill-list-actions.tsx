@@ -206,7 +206,7 @@ function AgentGroup({
   return (
     <Collapsible defaultOpen={defaultOpen}>
       <CollapsibleTrigger className="group/trigger flex w-full items-center gap-1 rounded-md px-2.5 py-1.5 text-caption font-medium text-muted-foreground transition-colors hover:bg-accent/50">
-        <ChevronRight className="size-3 stroke-[2.5] transition-transform duration-200 group-data-[panel-open]/trigger:rotate-90" />
+        <ChevronRight className="size-3 stroke-[2.5] transition-transform duration-200 group-data-[panel-open]/trigger:rotate-90 rtl:group-data-[panel-open]/trigger:-rotate-90" />
         <span>{label}</span>
         <span className="text-muted-foreground">{agents.length}</span>
       </CollapsibleTrigger>

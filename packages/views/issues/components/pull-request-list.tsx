@@ -471,7 +471,7 @@ function PullRequestRow({
             {verdict.kind === "failed" ? <PullRequestProblems verdict={verdict} stale={stale} /> : null}
           </div>
         </TooltipTrigger>
-        <TooltipContent side="left" align="start" className="flex-col items-start gap-0.5">
+        <TooltipContent side="inline-start" align="start" className="flex-col items-start gap-0.5">
           <span className="font-medium">{pr.title}</span>
           <span className="text-muted-foreground">
             {pr.repo_owner}/{pr.repo_name}#{pr.number}

@@ -805,7 +805,7 @@ function FoldedRow({ usage }: { usage: RuntimeUsage[] }) {
         className="inline-flex items-center gap-1 text-caption text-muted-foreground transition-colors hover:text-foreground"
       >
         <ChevronRight
-          className={`h-3 w-3 transition-transform ${open ? "rotate-90" : ""}`}
+          className={`h-3 w-3 transition-transform ${open ? "rotate-90 rtl:-rotate-90" : ""}`}
         />
         {t(($) => $.usage.daily_breakdown_toggle)}
       </button>

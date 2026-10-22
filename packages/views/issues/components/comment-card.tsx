@@ -1273,7 +1273,7 @@ function CommentCardImpl({
                       onClick={handleToggle}
                       className={commentActionClassName}
                     >
-                      <ChevronRight aria-hidden className={cn("h-3.5 w-3.5 transition-transform motion-reduce:transition-none", open && "rotate-90")} />
+                      <ChevronRight aria-hidden className={cn("h-3.5 w-3.5 transition-transform motion-reduce:transition-none", open && "rotate-90 rtl:-rotate-90")} />
                     </Button>
                   }
                 />

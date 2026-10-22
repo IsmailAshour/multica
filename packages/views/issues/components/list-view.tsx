@@ -615,7 +615,7 @@ function StatusAccordionItem({
           />
         </div>
         <Accordion.Trigger className="group/trigger flex flex-1 items-center gap-2 px-2 h-full text-start outline-none cursor-pointer">
-          <ChevronRight className="size-3.5 shrink-0 text-muted-foreground transition-transform group-aria-expanded/trigger:rotate-90" />
+          <ChevronRight className="size-3.5 shrink-0 text-muted-foreground transition-transform group-aria-expanded/trigger:rotate-90 rtl:group-aria-expanded/trigger:-rotate-90" />
           <StatusHeading status={status} count={page.total} />
         </Accordion.Trigger>
         {onCreateIssue && !statusCatalog.entryOf(status)?.archived_at && (

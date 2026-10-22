@@ -114,7 +114,7 @@ export function WakeupCreate({
         <Plus aria-hidden="true" />
       </PopoverTrigger>
       <PopoverContent
-        side="left"
+        side="inline-start"
         align="start"
         sideOffset={12}
         className="w-[420px] max-w-[calc(100vw-2rem)] gap-0 p-4"

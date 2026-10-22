@@ -1266,7 +1266,7 @@ function ToolCallRow({ item }: { item: ChatTimelineItem }) {
         <ChevronRight
           className={cn(
             "h-3 w-3 shrink-0 text-muted-foreground transition-transform",
-            open && "rotate-90",
+            open && "rotate-90 rtl:-rotate-90",
             !hasInput && "invisible",
           )}
         />
@@ -1299,7 +1299,7 @@ function ToolResultRow({ item }: { item: ChatTimelineItem }) {
     <Collapsible open={open} onOpenChange={setOpen}>
       <CollapsibleTrigger className="flex w-full items-start gap-1.5 rounded-xs px-1 -mx-1 py-0.5 text-caption hover:bg-accent/30 transition-colors">
         <ChevronRight
-          className={cn("h-3 w-3 shrink-0 text-muted-foreground transition-transform mt-0.5", open && "rotate-90")}
+          className={cn("h-3 w-3 shrink-0 text-muted-foreground transition-transform mt-0.5", open && "rotate-90 rtl:-rotate-90")}
         />
         <span className="text-muted-foreground truncate">
           {labelPrefix}{preview}

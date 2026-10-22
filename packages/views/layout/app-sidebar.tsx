@@ -816,7 +816,7 @@ export function AppSidebar({ topSlot, searchSlot, headerClassName, headerStyle }
                   className="group/trigger cursor-pointer hover:bg-sidebar-accent/70 hover:text-sidebar-accent-foreground"
                 >
                   <span>{t(($) => $.sidebar.pinned_label)}</span>
-                  <ChevronRight className="!size-3 ms-1 stroke-[2.5] transition-transform duration-200 group-data-[panel-open]/trigger:rotate-90" />
+                  <ChevronRight className="!size-3 ms-1 stroke-[2.5] transition-transform duration-200 group-data-[panel-open]/trigger:rotate-90 rtl:group-data-[panel-open]/trigger:-rotate-90" />
                   <span className="ms-auto text-micro text-muted-foreground opacity-0 transition-opacity group-hover/pinned:opacity-100">{visiblePinned.length}</span>
                 </SidebarGroupLabel>
                 <CollapsibleContent>

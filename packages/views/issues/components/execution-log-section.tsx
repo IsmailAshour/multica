@@ -180,7 +180,7 @@ export function ExecutionLogSection({ issueId, identifier, issueTitle }: Executi
           <span className="truncate">{t(($) => $.execution_log.section)}</span>
           <ChevronRight
             className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${
-              open ? "rotate-90" : ""
+              open ? "rotate-90 rtl:-rotate-90" : ""
             }`}
           />
         </button>

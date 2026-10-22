@@ -171,7 +171,7 @@ function DoneAction({
       <span className="min-w-0 flex-1 text-body font-medium">{title}</span>
       <ArrowRight
         aria-hidden="true"
-        className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5"
+        className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5"
       />
     </>
   );

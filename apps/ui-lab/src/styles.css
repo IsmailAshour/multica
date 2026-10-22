@@ -1521,6 +1521,9 @@ body {
 .catalog-nav-heading .is-collapsed {
   transform: rotate(-90deg);
 }
+:where([dir="rtl"]) .catalog-nav-heading .is-collapsed {
+  transform: rotate(90deg);
+}
 .catalog-nav-items {
   display: grid;
   gap: 2px;

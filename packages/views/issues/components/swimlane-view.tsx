@@ -1663,7 +1663,7 @@ function DraggableSwimLane({
           className="flex min-w-0 flex-1 items-center gap-2 rounded-md text-start transition-colors hover:bg-accent/70"
         >
           <ChevronRight
-            className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${isCollapsed ? "" : "rotate-90"}`}
+            className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${isCollapsed ? "" : "rotate-90 rtl:-rotate-90"}`}
           />
           {lane.parentIssue && (
             <StatusIcon

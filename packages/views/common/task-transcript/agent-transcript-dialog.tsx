@@ -1624,7 +1624,7 @@ function GroupRow({
           aria-hidden
           className={cn(
             "mt-1 h-3 w-3 shrink-0 text-faint-foreground transition-transform",
-            expanded && "rotate-90",
+            expanded && "rotate-90 rtl:-rotate-90",
           )}
         />
         <span className="flex min-w-0 flex-1 items-baseline gap-1.5">

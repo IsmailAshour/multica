@@ -108,7 +108,7 @@ export function IssueDuplicatesSection({ issueId }: { issueId: string }) {
         <span className="rounded-xs bg-muted px-1 text-micro font-medium tabular-nums text-muted-foreground">
           {duplicates.length}
         </span>
-        <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${open ? "rotate-90" : ""}`} />
+        <ChevronRight className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${open ? "rotate-90 rtl:-rotate-90" : ""}`} />
       </button>
       {open && (
         <div className="ps-2">

@@ -431,7 +431,7 @@ export function WakeupsSection({
             {current.length + systemRules.length}
           </span>
           <ChevronRight
-            className={`size-3 text-muted-foreground ${open ? "rotate-90" : ""}`}
+            className={`size-3 text-muted-foreground ${open ? "rotate-90 rtl:-rotate-90" : ""}`}
             aria-hidden="true"
           />
         </button>
@@ -469,7 +469,7 @@ export function WakeupsSection({
                 className="flex min-h-9 w-full items-center gap-1 rounded-md px-2 py-1 text-caption text-muted-foreground hover:bg-accent focus-visible:outline-2 focus-visible:outline-ring"
               >
                 <ChevronRight
-                  className={`size-3 ${historyOpen ? "rotate-90" : ""}`}
+                  className={`size-3 ${historyOpen ? "rotate-90 rtl:-rotate-90" : ""}`}
                   aria-hidden="true"
                 />
                 {t(($) => $.wakeups.ended, { count: history.length })}

@@ -209,7 +209,7 @@ function ContainerNode({
           aria-hidden
           className={cn(
             "size-4 shrink-0 text-muted-foreground transition-transform duration-100",
-            open && "rotate-90",
+            open && "rotate-90 rtl:-rotate-90",
           )}
         />
         <span className="shrink-0">

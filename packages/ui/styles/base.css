@@ -399,3 +399,36 @@ html[data-dnd-dragging="true"] * {
   background-color: var(--find-match-active);
   color: var(--find-match-foreground);
 }
+
+/*
+ * Directional icons point along the reading direction, so RTL mirrors them.
+ * A rotation on the same icon composes after the mirror: pair `rotate-90`
+ * with `rtl:-rotate-90` so a disclosure chevron still opens downward.
+ * External-link, media and symmetric icons keep their drawing.
+ */
+:where([dir="rtl"]) svg.lucide-arrow-left,
+:where([dir="rtl"]) svg.lucide-arrow-right,
+:where([dir="rtl"]) svg.lucide-arrow-left-to-line,
+:where([dir="rtl"]) svg.lucide-arrow-right-to-line,
+:where([dir="rtl"]) svg.lucide-chevron-left,
+:where([dir="rtl"]) svg.lucide-chevron-right,
+:where([dir="rtl"]) svg.lucide-chevrons-left,
+:where([dir="rtl"]) svg.lucide-chevrons-right,
+:where([dir="rtl"]) svg.lucide-corner-down-left,
+:where([dir="rtl"]) svg.lucide-corner-down-right,
+:where([dir="rtl"]) svg.lucide-corner-left-up,
+:where([dir="rtl"]) svg.lucide-corner-up-left,
+:where([dir="rtl"]) svg.lucide-corner-up-right,
+:where([dir="rtl"]) svg.lucide-list-end,
+:where([dir="rtl"]) svg.lucide-log-in,
+:where([dir="rtl"]) svg.lucide-log-out,
+:where([dir="rtl"]) svg.lucide-panel-left,
+:where([dir="rtl"]) svg.lucide-panel-right {
+  transform: scaleX(-1);
+}
+
+/* Code stays left-to-right inside RTL pages. */
+:where([dir="rtl"]) :is(pre, code, kbd, samp) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}

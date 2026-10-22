@@ -79,7 +79,7 @@ export function QuickActionsSection({ issueId }: { issueId: string }) {
         <ChevronRight
           className={cn(
             "!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform",
-            open && "rotate-90",
+            open && "rotate-90 rtl:-rotate-90",
           )}
         />
       </button>
@@ -226,7 +226,7 @@ function QuickActionRow({
   return (
     <Tooltip>
       <TooltipTrigger render={row} />
-      <TooltipContent side="left">
+      <TooltipContent side="inline-start">
         <div className="space-y-0.5">
           <div className="font-medium">{action.name}</div>
           {action.description ? <div>{action.description}</div> : null}

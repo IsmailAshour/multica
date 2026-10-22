@@ -232,7 +232,7 @@ export function DraftDefinitionFields() {
       {/* Display defaults: captured already; expandable for fine-tuning. */}
       <Collapsible>
         <CollapsibleTrigger className="group flex w-fit max-w-full items-center gap-1.5 rounded-md -mx-1 px-1 py-1 text-start hover:bg-muted/60">
-          <ChevronRight className="size-3.5 shrink-0 text-muted-foreground transition-transform group-data-[panel-open]:rotate-90" />
+          <ChevronRight className="size-3.5 shrink-0 text-muted-foreground transition-transform group-data-[panel-open]:rotate-90 rtl:group-data-[panel-open]:-rotate-90" />
           <span className="text-caption font-medium">
             {t(($) => $.save_view.display_defaults)}
           </span>

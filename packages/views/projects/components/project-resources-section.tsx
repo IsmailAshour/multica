@@ -384,7 +384,7 @@ export function ProjectResourcesSection({ projectId }: { projectId: string }) {
       >
         {t(($) => $.resources.section_header)}
         <ChevronRight
-          className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${open ? "rotate-90" : ""}`}
+          className={`!size-3 shrink-0 stroke-[2.5] text-muted-foreground transition-transform ${open ? "rotate-90 rtl:-rotate-90" : ""}`}
         />
       </button>
       {open && (
