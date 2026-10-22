@@ -398,7 +398,7 @@ Arabic (`ar`) is the first right-to-left locale. The core rule from section 2 ap
 
 ### Plurals and counts
 
-Arabic has six plural forms. Every key that has `_one` / `_other` in English needs `_zero`, `_one`, `_two`, `_few` (3–10), `_many` (11–99) and `_other` (100 and above, and fractions):
+Arabic has six plural forms. Every key that has `_one` / `_other` in English needs `_zero`, `_one`, `_two`, `_few`, `_many` and `_other`. `few` and `many` follow the last two digits: `few` is 3–10, 103–110, …; `many` is 11–99, 111–199, …; `other` is 100–102, 200–202, … and fractions:
 
 ```json
 // ar/issues.json
@@ -415,10 +415,14 @@ Arabic has six plural forms. Every key that has `_one` / `_other` in English nee
 ### RTL in code
 
 - `<html dir>` comes from `getDir(locale)` in `@multica/core/i18n`; never hard-code a direction in a component.
-- Use logical Tailwind utilities: `ms-* me-* ps-* pe-* start-* end-* border-s border-e rounded-s rounded-e text-start text-end`. Do not use `ml-* mr-* pl-* pr-* left-* right-*` or `text-left` / `text-right`.
+- Use logical Tailwind utilities: `ms-* me-* ps-* pe-* inset-s-* inset-e-* border-s border-e rounded-s rounded-e text-start text-end`. Do not use `ml-* mr-* pl-* pr-* left-* right-*` or `text-left` / `text-right`, nor the legacy `start-*` / `end-*` aliases. `multica/logical-direction` reports all of them.
+- Utilities with no logical form (`origin-left`, `bg-gradient-to-l`) need an `rtl:` counterpart in the same class list: `bg-gradient-to-l rtl:bg-gradient-to-r`. The lint rule enforces it.
 - Centering with `left-1/2 -translate-x-1/2` is direction-neutral and stays physical. Every other `translate-x` is physical too (a switch thumb, a hover nudge, an offset), so pair it with an `rtl:` counterpart of the opposite sign: `data-checked:translate-x-4 rtl:data-checked:-translate-x-4`. The lint rule does not catch these.
-- `Sidebar` and `Sheet` take `side="start" | "end"`; popovers and tooltips take `inline-start` / `inline-end`.
-- Directional icons (chevrons, arrows) mirror with `rtl:rotate-180`. Code blocks stay left-to-right.
+- `Sidebar` and `Sheet` take `side="start" | "end"`; popovers, tooltips and menus take `inline-start` / `inline-end`.
+- Directional lucide icons (arrows, chevrons, corners, lists, send, log in / out, panels) mirror automatically under `[dir="rtl"]`; see `packages/ui/styles/base.css`. Do not add `rtl:rotate-180` to them, because that flips them back. A mirrored icon that also rotates needs the opposite rotation: `rotate-90 rtl:-rotate-90`.
+- Pointer deltas and `scrollLeft` are physical. Horizontal maths in JS uses `isRtl`, `inlineSign`, `getInlineScroll` and `setInlineScroll` from `@multica/ui/lib/direction`.
+- Inline `style` objects are not linted. Use `insetInlineStart`, `paddingInlineStart` and the like, unless the value is physical on purpose.
+- Visuals positioned from data (Gantt, run timeline, cost chart, Mermaid diagrams) and the desktop window chrome next to the macOS traffic lights are `dir="ltr"` islands. Icons inside an island do not mirror. Code blocks stay left-to-right.
 - In CSS use `margin-inline-*`, `padding-inline-*`, `inset-inline-*`, `border-inline-*` and `text-align: start | end`.
 
 ---

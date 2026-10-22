@@ -396,7 +396,7 @@ description 默认省略。添加前先问：**没有这句话，用户会误解
 
 ### 复数与计数
 
-阿拉伯语有六种复数形式。英文中带 `_one` / `_other` 的每个 key，都需要 `_zero`、`_one`、`_two`、`_few`（3–10）、`_many`（11–99）和 `_other`（100 及以上和小数）：
+阿拉伯语有六种复数形式。英文中带 `_one` / `_other` 的每个 key，都需要 `_zero`、`_one`、`_two`、`_few`、`_many` 和 `_other`。`few` 与 `many` 看最后两位数：`few` 是 3–10、103–110……；`many` 是 11–99、111–199……；`other` 是 100–102、200–202……以及小数：
 
 ```json
 // ar/issues.json
@@ -413,10 +413,14 @@ description 默认省略。添加前先问：**没有这句话，用户会误解
 ### 代码中的 RTL
 
 - `<html dir>` 由 `@multica/core/i18n` 的 `getDir(locale)` 决定，组件内不要写死方向。
-- 使用逻辑 Tailwind 工具类：`ms-* me-* ps-* pe-* start-* end-* border-s border-e rounded-s rounded-e text-start text-end`。不要使用 `ml-* mr-* pl-* pr-* left-* right-*` 或 `text-left` / `text-right`。
+- 使用逻辑 Tailwind 工具类：`ms-* me-* ps-* pe-* inset-s-* inset-e-* border-s border-e rounded-s rounded-e text-start text-end`。不要使用 `ml-* mr-* pl-* pr-* left-* right-*` 或 `text-left` / `text-right`，也不要使用旧别名 `start-*` / `end-*`。`multica/logical-direction` 会报告这些写法。
+- 没有逻辑写法的工具类（`origin-left`、`bg-gradient-to-l`）需要在同一个 class 列表里补 `rtl:` 对应值：`bg-gradient-to-l rtl:bg-gradient-to-r`。lint 规则会检查。
 - `left-1/2 -translate-x-1/2` 这种居中写法与方向无关，保持物理写法。其他 `translate-x` 同样是物理方向（开关滑块、悬停位移、偏移量），需要补一个符号相反的 `rtl:` 对应值：`data-checked:translate-x-4 rtl:data-checked:-translate-x-4`。lint 规则不会检查这类写法。
-- `Sidebar` 和 `Sheet` 的 `side` 取 `"start" | "end"`；popover 和 tooltip 取 `inline-start` / `inline-end`。
-- 带方向的图标（箭头、chevron）用 `rtl:rotate-180` 镜像。代码块保持从左到右。
+- `Sidebar` 和 `Sheet` 的 `side` 取 `"start" | "end"`；popover、tooltip 和菜单取 `inline-start` / `inline-end`。
+- 带方向的 lucide 图标（箭头、chevron、转角、列表、发送、登录/退出、面板）在 `[dir="rtl"]` 下自动镜像，见 `packages/ui/styles/base.css`。不要再给它们加 `rtl:rotate-180`，否则会被翻回去。镜像后还要旋转的图标需要反向旋转：`rotate-90 rtl:-rotate-90`。
+- 指针位移和 `scrollLeft` 是物理方向。JS 中的水平计算使用 `@multica/ui/lib/direction` 的 `isRtl`、`inlineSign`、`getInlineScroll` 和 `setInlineScroll`。
+- 内联 `style` 对象不受 lint 检查。使用 `insetInlineStart`、`paddingInlineStart` 等写法，除非数值本来就是物理方向。
+- 按数据定位的图形（Gantt、运行时间线、费用图表、Mermaid 图）以及 macOS 红绿灯旁边的桌面窗口栏都是 `dir="ltr"` 区域，区域内的图标不镜像。代码块保持从左到右。
 - CSS 中使用 `margin-inline-*`、`padding-inline-*`、`inset-inline-*`、`border-inline-*` 和 `text-align: start | end`。
 
 ---
